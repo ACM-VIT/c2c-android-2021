@@ -31,7 +31,7 @@
         android:layout_marginTop="13dp"
         android:fontFamily="@font/dmsans_bold"
         android:gravity="center"
-        android:text="Code2Create"
+        android:text="@string/code2create"
         android:textSize="45sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
