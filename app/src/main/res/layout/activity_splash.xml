@@ -8,6 +8,12 @@
     tools:context=".SplashActivity">
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:src="@drawable/ic_group_25" />
+
+    <ImageView
         android:id="@+id/c2c_logo"
         android:layout_width="153dp"
         android:layout_height="140dp"
@@ -22,7 +28,7 @@
         android:id="@+id/splash_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="13dp"
         android:fontFamily="@font/dmsans_bold"
         android:gravity="center"
         android:text="Code2Create"
