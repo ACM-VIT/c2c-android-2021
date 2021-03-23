@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/nav_tracks">
+
+    <fragment
+        android:id="@+id/nav_timeline"
+        android:name="com.benrostudios.c2c2021.TimelineFragment"
+        android:label="fragment_timeline"
+        tools:layout="@layout/fragment_timeline" />
+    <fragment
+        android:id="@+id/nav_notifications_and_speakers"
+        android:name="com.benrostudios.c2c2021.NotificationsAndSpeakersFragment"
+        android:label="fragment_notifications_and_speakers"
+        tools:layout="@layout/fragment_notifications_and_speakers" />
+    <fragment
+        android:id="@+id/nav_tracks"
+        android:name="com.benrostudios.c2c2021.TracksFragment"
+        android:label="fragment_tracks"
+        tools:layout="@layout/fragment_tracks" />
+    <fragment
+        android:id="@+id/nav_information_and_sponsors"
+        android:name="com.benrostudios.c2c2021.InformationAndSpeakersFragment"
+        android:label="fragment_information_and_sponsors"
+        tools:layout="@layout/fragment_information_and_sponsors" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.benrostudios.c2c2021.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>

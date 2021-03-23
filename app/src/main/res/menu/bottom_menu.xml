@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_timeline"
+        android:enabled="true"
+        android:icon="@drawable/ic_timeline"
+        android:title="Timeline" />
+    <item
+        android:id="@+id/nav_notifications_and_speakers"
+        android:enabled="true"
+        android:icon="@drawable/ic_notification"
+        android:title="Notif" />
+    <item
+        android:id="@+id/nav_tracks"
+        android:enabled="true"
+        android:icon="@drawable/ic_tracks"
+        android:title="Tracks" />
+    <item
+        android:id="@+id/nav_information_and_sponsors"
+        android:enabled="true"
+        android:icon="@drawable/ic_information"
+        android:title="Info" />
+    <item
+        android:id="@+id/nav_profile"
+        android:enabled="true"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile" />
+
+</menu>
