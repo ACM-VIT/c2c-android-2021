@@ -1,13 +1,23 @@
 <resources>
-    <!-- Base application theme. -->
+
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:fontFamily">@font/dmsans_regular</item>
+    </style>
+
+    <style name="TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="rippleColor">@color/secondaryGrey</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:textAppearance">@style/normal_text</item>
+    </style>
+
+    <style name="normal_text" parent="android:Widget.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorGrey</item>
     </style>
 
 </resources>

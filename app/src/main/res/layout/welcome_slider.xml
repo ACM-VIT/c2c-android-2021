@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+
+    <TextView
+        android:id="@+id/welcome_slider_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/dmsans_bold"
+        android:gravity="center"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="6sp"
+        android:text="@string/welcome_slider_1_header"
+        android:textColor="@color/textColor"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/welcome_slider_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/dmsans_regular"
+        android:gravity="center"
+        android:lineSpacingExtra="1sp"
+        android:text="@string/welcome_slider_1_text"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_slider_header" />
+
+    <ImageView
+        android:id="@+id/welcome_slider_image_2"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="145dp"
+        android:src="@drawable/ic_calendar_onboarding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_slider_text" />
+
+    <ImageView
+        android:id="@+id/welcome_slider_image_1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="175dp"
+        android:alpha="0.5"
+        android:src="@drawable/ic_square"
+        app:layout_constraintEnd_toStartOf="@id/welcome_slider_image_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_slider_text" />
+
+    <ImageView
+        android:id="@+id/welcome_slider_image_3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="175dp"
+        android:alpha="0.5"
+        android:src="@drawable/ic_notification_onboarding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/welcome_slider_image_2"
+        app:layout_constraintTop_toBottomOf="@id/welcome_slider_text" />
+</androidx.constraintlayout.widget.ConstraintLayout>

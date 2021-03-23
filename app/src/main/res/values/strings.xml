@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">C2C 2021</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_slider_1_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
+    <string name="welcome_slider_1_header">Timeline</string>
+    <string name="welcome_slider_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
+    <string name="welcome_slider_2_header">Tracks</string>
+    <string name="welcome_slider_3_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
+    <string name="welcome_slider_3_header">Profile</string>
+    <string name="code2create">Code2Create</string>
 </resources>
