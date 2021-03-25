@@ -1,4 +1,4 @@
-package com.benrostudios.c2c2021
+package com.acmvit.c2c2021.ui.onboarding
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import com.acmvit.c2c2021.R
+import com.acmvit.c2c2021.ui.MainActivity
 
 class WelcomeActivity : AppCompatActivity() {
     var params: LinearLayout.LayoutParams =

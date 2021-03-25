@@ -1,0 +1,59 @@
+# This workflow will distribute the Android app to testers
+name: Test Distribute
+
+on:
+  pull_request:
+    branches: [ master ]
+    types: [closed]
+
+  schedule:
+    - cron: "0 2 * * 0-6"
+
+  workflow_dispatch:
+
+jobs:
+  check:
+    outputs: 
+      should_run: ${{ steps.check.outputs.should_run }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Grant exec permissions for check_CD.sh 
+        run: chmod +x .github/check_CD.sh
+      - name: check
+        id: check
+        env:
+          KV_STORE_API_KEY: ${{ secrets.KV_STORE_API_KEY }}
+          PR_MERGED: ${{ github.event.pull_request.merged }}
+        run: .github/check_CD.sh
+
+  build_and_distribute:
+    needs: check
+    if: needs.check.outputs.should_run == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Grant execute permission for gradlew and decrypt_secrets.sh
+        run: |
+          chmod +x gradlew
+          chmod +x .github/encrypted_secrets/decrypt_secrets.sh
+      - name: Decrypt Secrets
+        env:
+          SECRETS_DECRYPT_PASSPHRASE: ${{ secrets.SECRETS_DECRYPT_PASSPHRASE }}
+        run: .github/encrypted_secrets/decrypt_secrets.sh
+      - name: Build with Gradle
+        run: ./gradlew assembleDebug
+
+      - name: Add Release Notes
+        env:
+          TITLE: ${{github.event.pull_request.title}}
+          BODY: ${{github.event.pull_request.body}}
+        run: echo -e "${TITLE} \n${BODY}" > .github/RELEASE_NOTES.txt
+
+      - name: Distribute with Firebase App Distribution
+        run: ./gradlew appDistributionUploadDebug
+

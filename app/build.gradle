@@ -2,22 +2,32 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.firebase.appdistribution'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.1"
+    buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.benrostudios.c2c2021"
+        applicationId "com.acmvit.c2c2021"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0"
+        versionName "0.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+        debug {
+            firebaseAppDistribution {
+                appId= "1:379018396837:android:6f884f3213bd76e126b94c"
+                releaseNotesFile = ".github/RELEASE_NOTES.txt"
+                apkPath="app/build/outputs/apk/debug/app-debug.apk"
+                serviceCredentialsFile="app/firebase-service-credentials.json"
+                groups="internal"
+            }
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

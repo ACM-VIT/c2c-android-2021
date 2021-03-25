@@ -1,4 +1,4 @@
-package com.benrostudios.c2c2021
+package com.acmvit.c2c2021
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
