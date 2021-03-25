@@ -1,4 +1,4 @@
-package com.benrostudios.c2c2021
+package com.acmvit.c2c2021.ui.onboarding
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.viewpager.widget.PagerAdapter
+import com.acmvit.c2c2021.R
 
 class WelcomeAdapter(var context: Context) : PagerAdapter() {
     var layoutInflater: LayoutInflater? = null
