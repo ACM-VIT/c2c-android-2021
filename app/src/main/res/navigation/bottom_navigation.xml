@@ -7,27 +7,27 @@
 
     <fragment
         android:id="@+id/nav_timeline"
-        android:name="com.benrostudios.c2c2021.TimelineFragment"
+        android:name="com.acmvit.c2c2021.ui.timeline.TimelineFragment"
         android:label="fragment_timeline"
         tools:layout="@layout/fragment_timeline" />
     <fragment
         android:id="@+id/nav_notifications_and_speakers"
-        android:name="com.benrostudios.c2c2021.NotificationsAndSpeakersFragment"
+        android:name="com.acmvit.c2c2021.ui.notific_speakers.NotificationsAndSpeakersFragment"
         android:label="fragment_notifications_and_speakers"
         tools:layout="@layout/fragment_notifications_and_speakers" />
     <fragment
         android:id="@+id/nav_tracks"
-        android:name="com.benrostudios.c2c2021.TracksFragment"
+        android:name="com.acmvit.c2c2021.ui.tracks.TracksFragment"
         android:label="fragment_tracks"
         tools:layout="@layout/fragment_tracks" />
     <fragment
         android:id="@+id/nav_information_and_sponsors"
-        android:name="com.benrostudios.c2c2021.InformationAndSpeakersFragment"
+        android:name="com.acmvit.c2c2021.ui.info_sponsers.InformationAndSpeakersFragment"
         android:label="fragment_information_and_sponsors"
         tools:layout="@layout/fragment_information_and_sponsors" />
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.benrostudios.c2c2021.ProfileFragment"
+        android:name="com.acmvit.c2c2021.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 

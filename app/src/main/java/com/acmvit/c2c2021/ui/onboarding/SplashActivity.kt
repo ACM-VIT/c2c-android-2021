@@ -1,4 +1,4 @@
-package com.benrostudios.c2c2021
+package com.acmvit.c2c2021.ui.onboarding
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
+import com.acmvit.c2c2021.R
 
 @Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
