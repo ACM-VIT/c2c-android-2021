@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.acmvit.c2c2021.ui.onboarding.WelcomeActivity" />
-        <activity android:name="com.acmvit.c2c2021.ui.MainActivity" />
-        <activity android:name="com.acmvit.c2c2021.ui.onboarding.SplashActivity">
+        <activity android:name=".ui.onboarding.JoinDiscordActivity"></activity>
+        <activity android:name=".ui.onboarding.WelcomeActivity" />
+        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ui.onboarding.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

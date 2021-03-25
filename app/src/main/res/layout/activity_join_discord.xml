@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context=".ui.onboarding.JoinDiscordActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/group_23"
+        android:scaleType="center"
+        />
+
+    <TextView
+        android:id="@+id/join_disc_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Join our discord channel for latest updates"
+        android:textColor="@color/textColor"
+        android:gravity="center"
+        android:textSize="28dp"
+        android:fontFamily="@font/dmsans_bold"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="13dp"
+        />
+
+    <ImageView
+        android:layout_width="117dp"
+        android:layout_height="134dp"
+        app:layout_constraintTop_toBottomOf="@id/join_disc_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_discord"
+        android:id="@+id/discord_logo"
+        android:layout_marginTop="108dp"
+        />
+    <TextView
+        android:id="@+id/disc_channel_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/discord_logo"
+        android:text="Discord channel name"
+        android:textColor="@color/textColor"
+        android:gravity="center"
+        android:textSize="16dp"
+        android:fontFamily="@font/dmsans_regular"
+        android:layout_marginTop="16.2dp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/join_now_btn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/background_discord_button"
+        android:fontFamily="@font/dmsans_regular"
+        android:foreground="@drawable/ripple"
+        android:lineHeight="30dp"
+        android:text="Join Now"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/disc_skip_btn"
+        android:textAllCaps="false"
+        android:textColor="@color/textColor"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/disc_skip_btn"
+        style="@style/TextButton"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/text_button_ripple_effect"
+        android:fontFamily="@font/dmsans_regular"
+        android:text="Skip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/colorGrey" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
