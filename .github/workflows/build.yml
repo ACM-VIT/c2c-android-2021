@@ -1,11 +1,11 @@
 # This workflow will build the Android project
-name: Android Basic Build 
+name: Android Basic Build
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:
 
 jobs:

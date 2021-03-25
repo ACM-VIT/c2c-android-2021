@@ -3,7 +3,7 @@ name: Test Distribute
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
     types: [closed]
 
   schedule:
