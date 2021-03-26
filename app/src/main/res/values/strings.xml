@@ -22,4 +22,16 @@
     <string name="prize_money_3">win Rs. 10,000</string>
     <string name="prize_money_4">win Rs. 10,000</string>
     <string name="prizes">Prizes</string>
+
+    <!-- Profile -->
+    <string name="team_name">Team Name</string>
+    <string name="code2destroy">Code2Destroy</string>
+    <string name="for_any_queries_contact">For any queries, contact:</string>
+    <string name="anjali_roy_general_secretary">Anjali Roy (General Secretary)</string>
+    <string name="join_our_discord">Join our Discord</string>
+    <string name="logout">Logout</string>
+    <string name="_91_80178_95012">+91 80178 95012</string>
+    <string name="amit_agarwal">Amit Agarwal</string>
+    <string name="username_email">username@gmail.com</string>
+
 </resources>
