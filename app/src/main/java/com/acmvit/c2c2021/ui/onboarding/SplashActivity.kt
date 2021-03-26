@@ -10,7 +10,7 @@ import com.acmvit.c2c2021.R
 
 @Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
-    private val SPLASH_TIME_OUT = 2000L
+    private val SPLASH_TIME_OUT = 1500L
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE);

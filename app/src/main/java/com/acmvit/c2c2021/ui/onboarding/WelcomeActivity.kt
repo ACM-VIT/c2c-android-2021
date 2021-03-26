@@ -13,6 +13,7 @@ import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.ui.MainActivity
+import com.acmvit.c2c2021.ui.PrizesActivity
 
 class WelcomeActivity : AppCompatActivity() {
     var params: LinearLayout.LayoutParams =
@@ -49,16 +50,16 @@ class WelcomeActivity : AppCompatActivity() {
             dots[i].text = Html.fromHtml("&#8226")
             dots[i].textSize = 2f
             dots[i].setBackgroundResource(R.drawable.ic_circle_bordered)
-            dots[i].setLayoutParams(params)
+            dots[i].layoutParams = params
             dotsLayout!!.addView(dots[i])
         }
-        if (dots.size > 0) {
+        if (dots.isNotEmpty()) {
             dots[2 * position].setBackgroundResource(R.drawable.ic_circle_filled)
         }
     }
 
     private fun launchActivity() {
-        startActivity(Intent(this@WelcomeActivity, MainActivity::class.java))
+        startActivity(Intent(this@WelcomeActivity, JoinDiscordActivity::class.java))
         finish()
     }
 
@@ -72,7 +73,7 @@ class WelcomeActivity : AppCompatActivity() {
                         R.color.textColor
                     )
                 )
-                next!!.setEnabled(false);
+                next!!.isEnabled = false
                 launchActivity()
             }
         }

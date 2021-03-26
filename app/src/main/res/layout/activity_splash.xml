@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.5"
-        android:src="@drawable/ic_group_25" />
+        android:src="@drawable/splash_bg" />
 
     <ImageView
         android:id="@+id/c2c_logo"
