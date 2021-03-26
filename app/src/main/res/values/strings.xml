@@ -13,4 +13,13 @@
     <string name="join_now">Join Now</string>
     <string name="skip">Skip</string>
     <string name="next">Next</string>
+    <string name="prize_1">First Place</string>
+    <string name="prize_2">Second Place</string>
+    <string name="prize_3">Third Place</string>
+    <string name="prize_4">Fourth Place</string>
+    <string name="prize_money_1">win Rs. 10,000</string>
+    <string name="prize_money_2">win Rs. 10,000</string>
+    <string name="prize_money_3">win Rs. 10,000</string>
+    <string name="prize_money_4">win Rs. 10,000</string>
+    <string name="prizes">Prizes</string>
 </resources>

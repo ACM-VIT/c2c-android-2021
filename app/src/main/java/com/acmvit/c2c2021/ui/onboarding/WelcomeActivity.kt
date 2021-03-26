@@ -13,6 +13,7 @@ import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.ui.MainActivity
+import com.acmvit.c2c2021.ui.PrizesActivity
 
 class WelcomeActivity : AppCompatActivity() {
     var params: LinearLayout.LayoutParams =
@@ -58,7 +59,7 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun launchActivity() {
-        startActivity(Intent(this@WelcomeActivity, JoinDiscordActivity::class.java))
+        startActivity(Intent(this@WelcomeActivity, PrizesActivity::class.java))
         finish()
     }
 

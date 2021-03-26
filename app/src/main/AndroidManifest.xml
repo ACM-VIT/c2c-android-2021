@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.onboarding.JoinDiscordActivity"></activity>
+        <activity android:name=".ui.PrizesActivity"></activity>
+        <activity android:name=".ui.onboarding.JoinDiscordActivity" />
         <activity android:name=".ui.onboarding.WelcomeActivity" />
         <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.onboarding.SplashActivity">
