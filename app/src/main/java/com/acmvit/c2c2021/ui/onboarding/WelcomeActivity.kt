@@ -59,7 +59,7 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun launchActivity() {
-        startActivity(Intent(this@WelcomeActivity, MainActivity::class.java))
+        startActivity(Intent(this@WelcomeActivity, JoinDiscordActivity::class.java))
         finish()
     }
 
