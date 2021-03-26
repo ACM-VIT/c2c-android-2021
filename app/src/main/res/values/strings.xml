@@ -8,4 +8,9 @@
     <string name="welcome_slider_3_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
     <string name="welcome_slider_3_header">Profile</string>
     <string name="code2create">Code2Create</string>
+    <string name="join_discord_header">Join our discord channel for latest updates</string>
+    <string name="discord_channel_name">Discord channel name</string>
+    <string name="join_now">Join Now</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
 </resources>
