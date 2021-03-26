@@ -26,12 +26,6 @@ jobs:
           KV_STORE_API_KEY: ${{ secrets.KV_STORE_API_KEY }}
           PR_MERGED: ${{ github.event.pull_request.merged }}
         run: .github/check_CD.sh
-      - name: Add Release Notes
-        if: github.event_name == 'pull_request'
-        env:
-          TITLE: ${{github.event.pull_request.title}}
-          BODY: ${{github.event.pull_request.body}}
-        run: echo -e "${TITLE} \n${BODY}" >> .github/RELEASE_NOTES.txt
 
   build_and_distribute:
     needs: check
@@ -47,14 +41,24 @@ jobs:
         run: |
           chmod +x gradlew
           chmod +x .github/encrypted_secrets/decrypt_secrets.sh
+          chmod +x .github/check_CD.sh
       - name: Decrypt Secrets
         env:
           SECRETS_DECRYPT_PASSPHRASE: ${{ secrets.SECRETS_DECRYPT_PASSPHRASE }}
         run: .github/encrypted_secrets/decrypt_secrets.sh
       - name: Build with Gradle
         run: ./gradlew assembleDebug
+
+      - name: Add Release Notes
+        env:
+          TITLE: ${{github.event.pull_request.title}}
+          BODY: ${{github.event.pull_request.body}}
+        run: echo -e "${TITLE} \n${BODY}" > .github/RELEASE_NOTES.txt
+
       - name: Distribute with Firebase App Distribution
-        run: ./gradlew appDistributionUploadDebug
-      - name: Clear Release Notes
-        run: echo > .github/RELEASE_NOTES.txt
+        env:
+          KV_STORE_API_KEY: ${{ secrets.KV_STORE_API_KEY }}
+        run: |
+          source .github/check_CD.sh
+          ./gradlew appDistributionUploadDebug -pGroups="$(get_value_at_key groups)"
 
