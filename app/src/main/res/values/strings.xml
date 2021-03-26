@@ -23,6 +23,8 @@
     <string name="prize_money_4">win Rs. 10,000</string>
     <string name="prizes">Prizes</string>
 
+    <string name="random_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
+
     <!-- Profile -->
     <string name="team_name">Team Name</string>
     <string name="code2destroy">Code2Destroy</string>
@@ -33,5 +35,13 @@
     <string name="_91_80178_95012">+91 80178 95012</string>
     <string name="amit_agarwal">Amit Agarwal</string>
     <string name="username_email">username@gmail.com</string>
+
+    <!-- Info and speakers -->
+    <string name="faq_qs">Why should I participate in Code2Create?</string>
+    <string name="faq_ans">Code2Create is one of the biggest college-level hackathons in the country and promises to be a great learning experience for beginners as well as seasoned developers alike. You’ll end up with a mini-project to show-off on your resume, and with prizes worth 5 lakhs, speaker sessions from industry experts, schwags, and fun in-hack activities, you definitely don’t wanna miss this!</string>
+    <string name="about_acm_vit">About ACM-VIT</string>
+    <string name="faq">FAQ</string>
+    <string name="about_us">About Us</string>
+
 
 </resources>
