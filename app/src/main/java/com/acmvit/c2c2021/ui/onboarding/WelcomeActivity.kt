@@ -59,7 +59,7 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun launchActivity() {
-        startActivity(Intent(this@WelcomeActivity, PrizesActivity::class.java))
+        startActivity(Intent(this@WelcomeActivity, MainActivity::class.java))
         finish()
     }
 
