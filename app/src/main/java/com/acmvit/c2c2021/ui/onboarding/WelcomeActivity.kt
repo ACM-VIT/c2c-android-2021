@@ -12,8 +12,6 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.acmvit.c2c2021.R
-import com.acmvit.c2c2021.ui.MainActivity
-import com.acmvit.c2c2021.ui.PrizesActivity
 
 class WelcomeActivity : AppCompatActivity() {
     var params: LinearLayout.LayoutParams =
