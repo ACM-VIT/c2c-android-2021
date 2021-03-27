@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/secondaryGrey">
-    <item>
-        <shape android:shape="rectangle">
-            <solid android:color="@color/colorPurple" />
-            <corners android:radius="8dp" />
-        </shape>
-    </item>
-</ripple>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/background_discord_button_enabled" android:state_enabled="true" />
+    <item android:drawable="@drawable/background_discord_button_disabled" android:state_enabled="false" />
+    <!-- default state-->
+    <item android:drawable="@drawable/background_discord_button_enabled" />
+</selector>
