@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.databinding.FragmentLoginBinding
-import com.acmvit.c2c2021.ui.MainActivity
+import com.acmvit.c2c2021.ui.onboarding.WelcomeActivity
 import com.acmvit.c2c2021.viewmodels.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
 
@@ -63,7 +63,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun updateUI() {
-        startActivity(Intent(activity, MainActivity::class.java))
+        startActivity(Intent(activity, WelcomeActivity::class.java))
     }
 
 }

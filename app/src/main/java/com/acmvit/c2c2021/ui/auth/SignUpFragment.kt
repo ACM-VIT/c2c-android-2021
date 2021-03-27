@@ -46,17 +46,4 @@ class SignUpFragment : Fragment() {
         return binding.root
     }
 
-    override fun onStart() {
-        super.onStart()
-        val currentUser = viewModel.auth.currentUser
-        if (currentUser != null) {
-            if (currentUser.isEmailVerified)
-                updateUI()
-        }
-    }
-
-    private fun updateUI() {
-        startActivity(Intent(activity, MainActivity::class.java))
-    }
-
 }

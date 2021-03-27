@@ -7,6 +7,7 @@ import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
 import com.acmvit.c2c2021.R
+import com.acmvit.c2c2021.ui.auth.AuthActivity
 
 @Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {
@@ -21,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         Handler().postDelayed(
             {
-                startActivity(Intent(this, WelcomeActivity::class.java))
+                startActivity(Intent(this, AuthActivity::class.java))
                 finish()
             }, SPLASH_TIME_OUT
         )
