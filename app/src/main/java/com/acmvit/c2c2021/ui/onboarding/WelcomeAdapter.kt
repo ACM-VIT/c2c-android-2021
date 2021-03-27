@@ -14,32 +14,42 @@ class WelcomeAdapter(var context: Context) : PagerAdapter() {
     var layoutInflater: LayoutInflater? = null
     var slideImages1 = intArrayOf(
         R.drawable.ic_square,
+        R.drawable.ic_calendar_small,
         R.drawable.ic_notification_onboarding,
+        R.drawable.ic_category_small,
         R.drawable.ic_information_onboarding
     )
     var slideImages2 = intArrayOf(
         R.drawable.ic_calendar_onboarding,
+        R.drawable.ic_notification_large,
         R.drawable.ic_tracks_onboarding,
+        R.drawable.ic_document_large,
         R.drawable.ic_profile_onboarding
     )
     var slideImages3 = intArrayOf(
         R.drawable.ic_notification_onboarding,
+        R.drawable.ic_category_small,
         R.drawable.ic_information_onboarding,
+        R.drawable.ic_profile_small,
         R.drawable.ic_square
     )
     var slideHeader = intArrayOf(
         R.string.welcome_slider_1_header,
         R.string.welcome_slider_2_header,
-        R.string.welcome_slider_3_header
+        R.string.welcome_slider_3_header,
+        R.string.welcome_slider_4_header,
+        R.string.welcome_slider_5_header
     )
     var slideText = intArrayOf(
         R.string.welcome_slider_1_text,
         R.string.welcome_slider_2_text,
-        R.string.welcome_slider_3_text
+        R.string.welcome_slider_3_text,
+        R.string.welcome_slider_4_text,
+        R.string.welcome_slider_5_text
     )
 
     override fun getCount(): Int {
-        return 3
+        return 5
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
