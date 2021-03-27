@@ -9,4 +9,6 @@
     <color name="textColor">#FFFFFF</color>
     <color name="colorGrey">#BDBDBD</color>
     <color name="colorPurple">#7289DA</color>
+    <color name="color_disabled">#80FFFFFF</color>
+    <color name="loadingOverlay">#732B2A2A</color>
 </resources>

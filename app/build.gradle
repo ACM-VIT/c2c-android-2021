@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.appdistribution'
 
 android {
@@ -21,11 +22,11 @@ android {
     buildTypes {
         debug {
             firebaseAppDistribution {
-                appId= "1:379018396837:android:6f884f3213bd76e126b94c"
+                appId = "1:379018396837:android:6f884f3213bd76e126b94c"
                 releaseNotesFile = ".github/RELEASE_NOTES.txt"
-                apkPath="app/build/outputs/apk/debug/app-debug.apk"
-                serviceCredentialsFile="app/firebase-service-credentials.json"
-                groups="internal"
+                apkPath = "app/build/outputs/apk/debug/app-debug.apk"
+                serviceCredentialsFile = "app/firebase-service-credentials.json"
+                groups = "internal"
             }
         }
         release {
@@ -48,6 +49,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.firebase:firebase-database-ktx:19.7.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
