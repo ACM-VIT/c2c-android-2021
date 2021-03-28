@@ -26,4 +26,34 @@
     <string name="prize_money_3">win Rs. 10,000</string>
     <string name="prize_money_4">win Rs. 10,000</string>
     <string name="prizes">Prizes</string>
+
+    <string name="random_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>
+
+    <!-- Profile -->
+    <string name="team_name">Team Name</string>
+    <string name="code2destroy">Code2Destroy</string>
+    <string name="for_any_queries_contact">For any queries, contact:</string>
+    <string name="anjali_roy_general_secretary">Anjali Roy (General Secretary)</string>
+    <string name="join_our_discord">Join our Discord</string>
+    <string name="logout">Logout</string>
+    <string name="_91_80178_95012">+91 80178 95012</string>
+    <string name="amit_agarwal">Amit Agarwal</string>
+    <string name="username_email">username@gmail.com</string>
+
+    <!-- Info and speakers -->
+    <string name="faq_qs">Why should I participate in Code2Create?</string>
+    <string name="faq_ans">Code2Create is one of the biggest college-level hackathons in the country and promises to be a great learning experience for beginners as well as seasoned developers alike. You’ll end up with a mini-project to show-off on your resume, and with prizes worth 5 lakhs, speaker sessions from industry experts, schwags, and fun in-hack activities, you definitely don’t wanna miss this!</string>
+    <string name="faq">FAQ</string>
+    <string name="about_us">About Us</string>
+    <string name="about_acm_vit">About ACM-VIT</string>
+    <string name="about_acm_vit_content">ACM-VIT, one of the most reputed and distinguished technical chapter in VIT, Vellore has been working with vision and determination since it’s inception in 2009, with the aspirations of advancement of computer science as a science and a profession. We are not just an organization, we are a family, united by one cause, working towards making technology more accessible much like our parent organization, ACM. Ask why? Look at our motto, “Because Technology Matters”.</string>
+    <string name="acm_website_url">https://acmvit.in/</string>
+    <string name="acm_insta_url">https://www.instagram.com/acmvit/</string>
+    <string name="acm_linkedin_url">https://www.linkedin.com/company/acm-vit-chapter</string>
+    <string name="about_c2c">About C2C</string>
+    <string name="about_c2c_content">Code2Create is ACM-VIT\'s flagship event, and it is among the biggest hackathons hosted in VIT. Code2Create is a platform where designers and developers alike collaborate to make something extraordinary. It challenges young minds to think on their feet and work efficiently. The 36-hour long hackathon is filled with intense brainstorming, creating and testing. Industry experts serve as guest judges for the same and host engaging spaces for the participants.</string>
+    <string name="c2c_website_url">https://c2c.acmvit.in/</string>
+    <string name="c2c_insta_url">https://www.instagram.com/c2c.acmvit/</string>
+    <string name="c2c_linkedin_url">https://www.linkedin.com/company/acm-vit-chapter</string>
+
 </resources>
