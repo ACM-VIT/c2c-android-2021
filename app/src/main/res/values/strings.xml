@@ -4,9 +4,13 @@
     <string name="welcome_slider_1_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
     <string name="welcome_slider_1_header">Timeline</string>
     <string name="welcome_slider_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
-    <string name="welcome_slider_2_header">Tracks</string>
+    <string name="welcome_slider_2_header">Notifications</string>
     <string name="welcome_slider_3_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
-    <string name="welcome_slider_3_header">Profile</string>
+    <string name="welcome_slider_3_header">Tracks</string>
+    <string name="welcome_slider_4_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
+    <string name="welcome_slider_4_header">About</string>
+    <string name="welcome_slider_5_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
+    <string name="welcome_slider_5_header">Profile</string>
     <string name="code2create">Code2Create</string>
     <string name="join_discord_header">Join our discord channel for latest updates</string>
     <string name="discord_channel_name">Discord channel name</string>

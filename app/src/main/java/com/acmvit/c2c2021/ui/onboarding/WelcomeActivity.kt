@@ -54,7 +54,7 @@ class WelcomeActivity : AppCompatActivity() {
             dotsLayout!!.addView(dots[i])
         }
         if (dots.isNotEmpty()) {
-            dots[2 * position].setBackgroundResource(R.drawable.ic_circle_filled)
+            dots[position].setBackgroundResource(R.drawable.ic_circle_filled)
         }
     }
 
@@ -66,7 +66,7 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun nextListener() {
         next!!.setOnClickListener { v: View? ->
-            if (currentPage < 2) viewPager!!.currentItem = currentPage + 1 else {
+            if (currentPage < 4) viewPager!!.currentItem = currentPage + 1 else {
                 next!!.setTextColor(
                     ContextCompat.getColor(
                         applicationContext,
@@ -81,12 +81,13 @@ class WelcomeActivity : AppCompatActivity() {
 
     private fun skipListener() {
         skip!!.setOnClickListener { v: View? ->
-            /*skip.setEnabled(false);*/skip!!.setTextColor(
-            ContextCompat.getColor(
-                applicationContext,
-                R.color.colorGrey
+            skip!!.isEnabled = false
+            skip!!.setTextColor(
+                ContextCompat.getColor(
+                    applicationContext,
+                    R.color.colorGrey
+                )
             )
-        )
             launchActivity()
         }
     }
