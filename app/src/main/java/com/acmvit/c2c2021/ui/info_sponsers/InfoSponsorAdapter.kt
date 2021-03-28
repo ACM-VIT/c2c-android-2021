@@ -7,10 +7,10 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class InfoSponsorAdapter(fragmentManager: FragmentManager,
                          lifecycle: Lifecycle,
-                         val fragments: List<Fragment>
+                         private val fragments: List<Fragment>
 ) : FragmentStateAdapter(fragmentManager, lifecycle) {
 
     override fun getItemCount(): Int = 2
 
-    override fun createFragment(position: Int): Fragment = fragments.get(position)
+    override fun createFragment(position: Int): Fragment = fragments[position]
 }

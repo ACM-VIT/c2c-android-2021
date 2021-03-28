@@ -39,9 +39,17 @@
     <!-- Info and speakers -->
     <string name="faq_qs">Why should I participate in Code2Create?</string>
     <string name="faq_ans">Code2Create is one of the biggest college-level hackathons in the country and promises to be a great learning experience for beginners as well as seasoned developers alike. You’ll end up with a mini-project to show-off on your resume, and with prizes worth 5 lakhs, speaker sessions from industry experts, schwags, and fun in-hack activities, you definitely don’t wanna miss this!</string>
-    <string name="about_acm_vit">About ACM-VIT</string>
     <string name="faq">FAQ</string>
     <string name="about_us">About Us</string>
-
+    <string name="about_acm_vit">About ACM-VIT</string>
+    <string name="about_acm_vit_content">ACM-VIT, one of the most reputed and distinguished technical chapter in VIT, Vellore has been working with vision and determination since it’s inception in 2009, with the aspirations of advancement of computer science as a science and a profession. We are not just an organization, we are a family, united by one cause, working towards making technology more accessible much like our parent organization, ACM. Ask why? Look at our motto, “Because Technology Matters”.</string>
+    <string name="acm_website_url">https://acmvit.in/</string>
+    <string name="acm_insta_url">https://www.instagram.com/acmvit/</string>
+    <string name="acm_linkedin_url">https://www.linkedin.com/company/acm-vit-chapter</string>
+    <string name="about_c2c">About C2C</string>
+    <string name="about_c2c_content">Code2Create is ACM-VIT\'s flagship event, and it is among the biggest hackathons hosted in VIT. Code2Create is a platform where designers and developers alike collaborate to make something extraordinary. It challenges young minds to think on their feet and work efficiently. The 36-hour long hackathon is filled with intense brainstorming, creating and testing. Industry experts serve as guest judges for the same and host engaging spaces for the participants.</string>
+    <string name="c2c_website_url">https://c2c.acmvit.in/</string>
+    <string name="c2c_insta_url">https://www.instagram.com/c2c.acmvit/</string>
+    <string name="c2c_linkedin_url">https://www.linkedin.com/company/acm-vit-chapter</string>
 
 </resources>
