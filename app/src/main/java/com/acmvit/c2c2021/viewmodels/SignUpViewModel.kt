@@ -23,7 +23,7 @@ class SignUpViewModel : ViewModel() {
                         if (dataSnapshot.exists()) {
                             createNewUser(email, password)
                         } else {
-                            _error.value = "Please use the emailID registered on HackerEarth."
+                            _error.value = "This email is not registered for C2C on HackerEarth."
                         }
                     }
 
