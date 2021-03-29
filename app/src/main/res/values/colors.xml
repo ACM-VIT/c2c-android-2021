@@ -5,6 +5,8 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="primaryGreen">#48BA86</color>
     <color name="backgroundColor">#121212</color>
+    <color name="colorSurface">#2C2C2C</color>
+    <color name="colorSurfaceLight">#4C4C4C</color>
     <color name="secondaryGrey">#828282</color>
     <color name="textColor">#FFFFFF</color>
     <color name="colorGrey">#BDBDBD</color>
@@ -12,4 +14,7 @@
     <color name="color_disabled">#80FFFFFF</color>
     <color name="loadingOverlay">#732B2A2A</color>
     <color name="timelineDark">#2C2C2C</color>
+    <color name="colorGreen">#6FCF97</color>
+    <color name="colorRed">#EB5757</color>
+    <color name="colorOrange">#F2994A</color>
 </resources>

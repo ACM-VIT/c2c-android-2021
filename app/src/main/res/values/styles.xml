@@ -32,4 +32,18 @@
         <item name="colorControlHighlight">@color/secondaryGrey</item>
         <item name="android:colorAccent">@color/secondaryGrey</item>
     </style>
+
+    <style name="SubmissionCountdownCardShapeAppearance" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">16dp</item>
+        <item name="cornerSizeBottomRight">16dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeTopRight">0dp</item>
+    </style>
+
+    <style name="MainCountDownTextAppearance" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/akhira_expanded</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
