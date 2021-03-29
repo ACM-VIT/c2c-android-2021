@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.databinding.FragmentInformationAndSponsorsBinding
+import com.acmvit.c2c2021.ui.adapters.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 class InformationAndSpeakersFragment : Fragment() {
@@ -28,7 +28,7 @@ class InformationAndSpeakersFragment : Fragment() {
         var fragments = mutableListOf<Fragment>()
         fragments.add(InformationFragment())
         fragments.add(SponsersFragment())
-        val adapter: InfoSponsorAdapter = InfoSponsorAdapter(childFragmentManager, lifecycle, fragments)
+        val adapter = ViewPagerAdapter(childFragmentManager, lifecycle, fragments)
         binding.infoSponsorVp.adapter = adapter
         val titles = mutableListOf("Information", "Sponsors")
         TabLayoutMediator(binding.infoSponsorTab, binding.infoSponsorVp) { tab, position ->
