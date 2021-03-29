@@ -90,6 +90,7 @@ class LoginFragment : Fragment() {
 
     private fun updateUI() {
         startActivity(Intent(activity, WelcomeActivity::class.java))
+        requireActivity().finish()
     }
 
 }
