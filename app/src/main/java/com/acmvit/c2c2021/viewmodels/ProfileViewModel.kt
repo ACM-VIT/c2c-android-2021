@@ -9,7 +9,9 @@ class ProfileViewModel(private var uid: String): ViewModel() {
     private val userRepository = UserRepository()
     val user = userRepository.user
     val discordLink = userRepository.discordLink
-    private fun fetchUser() {
+
+    init {
+        userRepository.fetchDiscord()
         userRepository.fetchUser(uid)
     }
 
