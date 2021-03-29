@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".ui.notific_speakers.NotificationsAndSpeakersFragment">
 
-    <TextView
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="@color/backgroundColor"
+        app:cardCornerRadius="12dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/primaryGreen" >
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/noti_speakers_tab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/backgroundColor"
+            app:tabIndicatorGravity="stretch"
+            app:tabIndicatorColor="@color/primaryGreen"
+            app:tabIndicator="@drawable/primary_button_ripple_effect"
+            app:tabMode="fixed"
+            app:tabMinWidth="0dp"
+            app:tabTextColor="@android:color/white"
+            app:tabTextAppearance="@style/tabText"
+            app:tabGravity="fill" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:text="Notif and Speakers" />
-
-</FrameLayout>
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/speakers_tab" />
+</LinearLayout>
+</layout>
