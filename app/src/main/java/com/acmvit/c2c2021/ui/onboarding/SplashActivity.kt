@@ -7,6 +7,7 @@ import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
 import com.acmvit.c2c2021.R
+import com.acmvit.c2c2021.ui.MainActivity
 import com.acmvit.c2c2021.ui.auth.AuthActivity
 
 @Suppress("DEPRECATION")

@@ -73,4 +73,6 @@
     <!--Notification and Speakers-->
     <string name="speakers">Speakers</string>
     <string name="notifications">Notifications</string>
+    <string name="sponsors">Sponsors</string>
+    <string name="title_sponsor">Title Sponsor</string>
 </resources>

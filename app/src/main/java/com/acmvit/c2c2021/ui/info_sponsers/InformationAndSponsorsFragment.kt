@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.acmvit.c2c2021.databinding.FragmentInformationAndSponsorsBinding
 import com.acmvit.c2c2021.ui.adapters.ViewPagerAdapter
+import com.acmvit.c2c2021.ui.info_sponsersView.SponsersFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
 class InformationAndSpeakersFragment : Fragment() {

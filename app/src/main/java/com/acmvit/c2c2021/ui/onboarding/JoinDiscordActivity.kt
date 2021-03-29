@@ -44,7 +44,7 @@ class JoinDiscordActivity : AppCompatActivity() {
         }
     }
 
-    private fun fetchData() {
+    fun fetchData() {
         val ref1 = FirebaseDatabase.getInstance().getReference("/utils/discord")
         ref1.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {

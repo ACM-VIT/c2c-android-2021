@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
-            android:text="Title Sponsor"
+            android:text="@string/title_sponsor"
             android:textSize="32sp"
             android:fontFamily="@font/dmsans_bold"
             android:textColor="@android:color/white"
@@ -36,13 +36,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-
         <TextView
             android:id="@+id/tv_sponsors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Sponsors"
+            android:text="@string/sponsors"
             android:textSize="32sp"
             android:fontFamily="@font/dmsans_bold"
             android:textColor="@android:color/white"

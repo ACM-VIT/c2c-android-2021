@@ -28,7 +28,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="invisible" />
 
-
         <com.acmvit.c2c2021.ui.OverlayFrame
             android:id="@+id/overlay_frame"
             android:layout_width="0dp"

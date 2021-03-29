@@ -4,20 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.Px
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
-import androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE
 import androidx.viewpager2.widget.ViewPager2.ScrollState
 import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.databinding.FragmentInformationBinding
 import com.acmvit.c2c2021.model.About
+import com.acmvit.c2c2021.ui.adapters.AboutAdapter
+import com.acmvit.c2c2021.ui.adapters.FaqAdapter
+import com.acmvit.c2c2021.viewmodels.FaqViewModel
 
 class InformationFragment : Fragment() {
 
     private var _binding: FragmentInformationBinding? = null
     private val binding get() = _binding!!
     private val aboutList = mutableListOf<About>()
+    private val faqAdapter = FaqAdapter()
+    private val viewModel by lazy {
+        ViewModelProvider(this).get(FaqViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +48,16 @@ class InformationFragment : Fragment() {
             if(tab != 3)
                 binding.aboutVp.currentItem = tab+1
         }
+        fetchFaq()
+    }
 
+    private fun fetchFaq() {
+        viewModel.faqList.observe(viewLifecycleOwner, {
+            if(it.isNotEmpty()) {
+                faqAdapter.submitList(it)
+                binding.rvFaq.adapter = faqAdapter
+            }
+        })
     }
 
     private fun setUpViewPager() {
