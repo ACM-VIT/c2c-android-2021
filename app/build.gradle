@@ -4,7 +4,6 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.appdistribution'
-apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 30
@@ -48,6 +47,18 @@ android {
     }
     buildFeatures {
         viewBinding true
+    }
+}
+
+task getVersionName {
+    doLast {
+        println android.defaultConfig.versionName
+    }
+}
+
+task getVersionCode {
+    doLast {
+        println android.defaultConfig.versionCode
     }
 }
 

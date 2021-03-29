@@ -4,6 +4,4 @@ import android.app.Application
 
 class C2CApp: Application() {
 
-
-
 }
