@@ -11,4 +11,5 @@
     <color name="colorPurple">#7289DA</color>
     <color name="color_disabled">#80FFFFFF</color>
     <color name="loadingOverlay">#732B2A2A</color>
+    <color name="timelineDark">#2C2C2C</color>
 </resources>
