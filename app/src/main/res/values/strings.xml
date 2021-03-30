@@ -20,11 +20,11 @@
     <string name="prize_1">First Place</string>
     <string name="prize_2">Second Place</string>
     <string name="prize_3">Third Place</string>
-    <string name="prize_4">Fourth Place</string>
-    <string name="prize_money_1">win Rs. 10,000</string>
-    <string name="prize_money_2">win Rs. 10,000</string>
-    <string name="prize_money_3">win Rs. 10,000</string>
-    <string name="prize_money_4">win Rs. 10,000</string>
+    <string name="prize_4">Meri Bachat Sponsor</string>
+    <string name="prize_money_1">win Rs. 30,000</string>
+    <string name="prize_money_2">win Rs. 15,000</string>
+    <string name="prize_money_3">win Rs. 7,000</string>
+    <string name="prize_money_4">win Rs. 5,000</string>
     <string name="prizes">Prizes</string>
 
     <string name="random_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</string>

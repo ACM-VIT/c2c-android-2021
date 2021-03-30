@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="100dp"
         android:layout_marginRight="32dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/dmsans_bold"
@@ -21,10 +20,12 @@
         android:textColor="@color/textColor"
         android:textSize="48sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.17" />
 
     <TextView
         android:id="@+id/welcome_slider_text"
@@ -48,8 +49,8 @@
         android:id="@+id/welcome_slider_image_2"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:layout_marginTop="145dp"
         android:src="@drawable/ic_calendar_onboarding"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcome_slider_text" />
@@ -58,9 +59,9 @@
         android:id="@+id/welcome_slider_image_1"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="175dp"
         android:alpha="0.5"
         android:src="@drawable/ic_square"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/welcome_slider_image_2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcome_slider_text" />
@@ -69,9 +70,9 @@
         android:id="@+id/welcome_slider_image_3"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="175dp"
         android:alpha="0.5"
         android:src="@drawable/ic_notification_onboarding"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/welcome_slider_image_2"
         app:layout_constraintTop_toBottomOf="@id/welcome_slider_text" />
