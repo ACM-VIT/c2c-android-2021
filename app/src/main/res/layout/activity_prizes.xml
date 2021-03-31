@@ -24,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
+        android:background="@color/backgroundColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,163 +37,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent"
+                android:background="@color/backgroundColor">
 
-                <androidx.appcompat.widget.LinearLayoutCompat
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/prizes_rv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="64dp"
+                    android:nestedScrollingEnabled="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/prizes_item" />
 
-                    <ImageView
-                        android:id="@+id/trophy_1"
-                        android:layout_width="74dp"
-                        android:layout_height="78dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="32dp"
-                        android:src="@drawable/ic_prize_1" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <TextView
-                        android:id="@+id/prize_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="@font/dmsans_bold"
-                        android:gravity="center"
-                        android:text="@string/prize_1"
-                        android:textSize="22sp" />
-
-                    <TextView
-                        android:id="@+id/prize_money_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="@font/dmsans_medium"
-                        android:gravity="center"
-                        android:text="@string/prize_money_1"
-                        android:textSize="18sp" />
-                </androidx.appcompat.widget.LinearLayoutCompat>
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/trophy_2"
-                        android:layout_width="74dp"
-                        android:layout_height="78dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="32dp"
-                        android:src="@drawable/ic_prize_2" />
-
-                    <TextView
-                        android:id="@+id/prize_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="@font/dmsans_bold"
-                        android:gravity="center"
-                        android:text="@string/prize_2"
-                        android:textSize="22sp" />
-
-                    <TextView
-                        android:id="@+id/prize_money_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="@font/dmsans_medium"
-                        android:gravity="center"
-                        android:text="@string/prize_money_2"
-                        android:textSize="18sp" />
-                </androidx.appcompat.widget.LinearLayoutCompat>
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/trophy_3"
-                        android:layout_width="74dp"
-                        android:layout_height="78dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="32dp"
-                        android:src="@drawable/ic_prize_3" />
-
-                    <TextView
-                        android:id="@+id/prize_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="@font/dmsans_bold"
-                        android:gravity="center"
-                        android:text="@string/prize_3"
-                        android:textSize="22sp" />
-
-                    <TextView
-                        android:id="@+id/prize_money_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="@font/dmsans_medium"
-                        android:gravity="center"
-                        android:text="@string/prize_money_3"
-                        android:textSize="18sp" />
-                </androidx.appcompat.widget.LinearLayoutCompat>
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="62dp"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/trophy_4"
-                        android:layout_width="74dp"
-                        android:layout_height="78dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="32dp"
-                        android:src="@drawable/ic_prize_4" />
-
-                    <TextView
-                        android:id="@+id/prize_4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="@font/dmsans_bold"
-                        android:gravity="center"
-                        android:text="@string/prize_4"
-                        android:textSize="22sp" />
-
-                    <TextView
-                        android:id="@+id/prize_money_4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="12dp"
-                        android:fontFamily="@font/dmsans_medium"
-                        android:gravity="center"
-                        android:text="@string/prize_money_4"
-                        android:textSize="18sp" />
-                </androidx.appcompat.widget.LinearLayoutCompat>
-
-            </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
