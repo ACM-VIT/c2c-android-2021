@@ -3,8 +3,10 @@ package com.acmvit.c2c2021.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.acmvit.c2c2021.repository.UserRepository
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
-class ProfileViewModel(private var uid: String): ViewModel() {
+class ProfileViewModel: ViewModel() {
 
     private val userRepository = UserRepository()
     val user = userRepository.user
@@ -12,15 +14,6 @@ class ProfileViewModel(private var uid: String): ViewModel() {
 
     init {
         userRepository.fetchDiscord()
-        userRepository.fetchUser(uid)
-    }
-
-    class ProfileViewModelFactory(private val userId: String) : ViewModelProvider.Factory{
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(ProfileViewModel::class.java)) {
-                return ProfileViewModel(userId) as T
-            }
-            throw IllegalArgumentException("Unknown ViewModel class")
-        }
+        userRepository.fetchUser(Firebase.auth.currentUser?.email!!)
     }
 }
