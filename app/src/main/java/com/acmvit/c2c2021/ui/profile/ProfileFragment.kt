@@ -34,9 +34,8 @@ class ProfileFragment : Fragment() {
         overlayFrame.displayOverlay(true, overlayDrawable!!)
         progressBar.visibility = View.VISIBLE
 
-        val userId = FirebaseAuth.getInstance().uid!!
         val viewModel by lazy {
-            ViewModelProvider(this, ProfileViewModel.ProfileViewModelFactory(userId)).get(ProfileViewModel::class.java)
+            ViewModelProvider(this).get(ProfileViewModel::class.java)
         }
 
         viewModel.user.observe(viewLifecycleOwner, {

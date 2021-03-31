@@ -33,7 +33,7 @@ class FaqAdapter: RecyclerView.Adapter<FaqAdapter.ViewHolder>() {
         holder.button.setImageResource(R.drawable.ic_plus)
         holder.layout.setBackgroundResource(R.drawable.ic_background_rectangle)
         holder.answer.visibility = View.GONE
-        holder.button.setOnClickListener {
+        holder.cardView.setOnClickListener {
             if(holder.answer.visibility == View.VISIBLE) {
                 TransitionManager.beginDelayedTransition(holder.cardView, AutoTransition())
                 holder.answer.visibility = View.GONE
