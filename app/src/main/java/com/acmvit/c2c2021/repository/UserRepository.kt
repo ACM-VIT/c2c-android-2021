@@ -23,16 +23,20 @@ class UserRepository {
     val discordLink: LiveData<String>
         get() = _discordLink
 
-    fun fetchUser(userId: String) {
-        val databaseReference = Firebase.database.getReference("/users/$userId")
-        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+    fun fetchUser(email: String) {
+        val databaseReference = Firebase.database.getReference("users")
+        Log.d("Email",email)
+        databaseReference.orderByChild("email").equalTo(email)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()) {
-                    snapshot.getValue(User::class.java).let {
-                        _user.postValue(it)
+                    val child=snapshot.children.elementAt(0)
+                    child.getValue(User::class.java) .let {
+                            _user.postValue(it)
+                        }
+
                     }
                 }
-            }
 
             override fun onCancelled(error: DatabaseError) {
                 Log.d("UserRep", "UserCancelled")
