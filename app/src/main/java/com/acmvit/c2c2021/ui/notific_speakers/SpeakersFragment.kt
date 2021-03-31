@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.acmvit.c2c2021.databinding.FragmentSpeakersBinding
+import com.acmvit.c2c2021.ui.adapters.SpeakersAdapter
 
 
 class SpeakersFragment : Fragment() {
@@ -23,9 +24,7 @@ class SpeakersFragment : Fragment() {
        binding=FragmentSpeakersBinding.inflate(inflater,container,false)
         viewModel.list.observe(viewLifecycleOwner, {
             val adapter= SpeakersAdapter(it)
-            Log.d("list",it.toString())
             binding.speakersRecycler.adapter=adapter
-            Log.d("Recycler","ok")
         })
         return binding.root
     }

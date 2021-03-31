@@ -1,4 +1,4 @@
-package com.acmvit.c2c2021.ui.notific_speakers
+package com.acmvit.c2c2021.ui.adapters
 
 import android.content.Intent
 import android.graphics.Color
