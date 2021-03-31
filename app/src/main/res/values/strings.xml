@@ -76,13 +76,23 @@
     <string name="log_in">Log in</string>
     <string name="already_have_an_account">Already have an account?</string>
     <string name="username">Username</string>
-    <string name="enter_your_credentials_to_continue">Enter your credentials to continue</string>
+    <string name="enter_your_credentials_to_continue">Enter your email to continue</string>
     <string name="sign_up">Sign Up</string>
     <string name="verify_email">Please verify your email address before logging in.</string>
+    <string name="email_mismatch">Email address mismatch</string>
+    <string name="email_empty">Email cannot be empty</string>
+    <string name="error">Some error occurred</string>
+    <string name="email_not_registered">This email is not registered for C2C on HackerEarth.</string>
+    <string name="email_sent">Email sent.Please check your email for logging in.</string>
+    <string name="error_with_link">Error signing in with email link</string>
 
     <!--Notification and Speakers-->
     <string name="speakers">Speakers</string>
     <string name="notifications">Notifications</string>
     <string name="sponsors">Sponsors</string>
     <string name="title_sponsor">Title Sponsor</string>
+    <string name="live_now">Live Now</string>
+    <string name="event_over">Event Over</string>
+    <string name="coming_soon">Coming Soon</string>
+
 </resources>
