@@ -22,6 +22,9 @@ class MainActivity : AppCompatActivity() {
             navController = navHostFragment.navController
         }
         NavigationUI.setupWithNavController(bottomNavigationView!!, navController!!)
+    }
 
+    override fun onBackPressed() {
+        finishAffinity()
     }
 }

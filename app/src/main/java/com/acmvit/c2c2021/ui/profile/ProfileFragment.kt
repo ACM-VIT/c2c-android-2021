@@ -72,5 +72,10 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
+    override fun onStop(){
+        super.onStop()
+        overlayFrame.displayOverlay(false, overlayDrawable!!)
+        progressBar.visibility = View.INVISIBLE
+    }
 
 }
