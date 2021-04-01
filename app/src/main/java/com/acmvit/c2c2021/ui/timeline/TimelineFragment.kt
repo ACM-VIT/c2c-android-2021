@@ -22,7 +22,7 @@ class TimelineFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.sponsorList.observe(viewLifecycleOwner, {
+        viewModel.timelineList.observe(viewLifecycleOwner, {
             if (it.isNotEmpty()) {
                 val adapter = TimelineAdapter(it)
                 timleline_recyclerView.layoutManager = LinearLayoutManager(requireContext())

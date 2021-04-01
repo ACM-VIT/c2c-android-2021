@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.model.NotificationItem
 import kotlinx.android.synthetic.main.noitifcation_item.view.*
-import kotlinx.android.synthetic.main.timeline_item.view.*
-import java.text.SimpleDateFormat
 
 class NotificationAdapter(private val notificationList: List<NotificationItem>):
     RecyclerView.Adapter<NotificationAdapter.ViewHolder>() {
@@ -35,8 +33,8 @@ class NotificationAdapter(private val notificationList: List<NotificationItem>):
     override fun getItemCount(): Int = notificationList.size
 
     private fun toSinceTime(unix: Long): String{
-        return  DateUtils.getRelativeDateTimeString(context, unix ,
-            DateUtils.MINUTE_IN_MILLIS,DateUtils.WEEK_IN_MILLIS,0).split(",")[0]
+        return  DateUtils.getRelativeDateTimeString(context, unix * 1000,
+            DateUtils.SECOND_IN_MILLIS,DateUtils.WEEK_IN_MILLIS,0).split(",")[0]
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
