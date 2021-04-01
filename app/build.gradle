@@ -31,11 +31,12 @@ android {
     buildTypes {
         debug {
             firebaseAppDistribution {
-                appId = "1:379018396837:android:6f884f3213bd76e126b94c"
+
+                appId= "1:379018396837:android:6f884f3213bd76e126b94c"
                 releaseNotesFile = ".github/RELEASE_NOTES.txt"
-                apkPath = "app/build/outputs/apk/debug/app-debug.apk"
-                serviceCredentialsFile = "app/firebase-service-credentials.json"
-                groups = "internal"
+                apkPath="app/build/outputs/apk/debug/app-debug.apk"
+                serviceCredentialsFile="app/firebase-service-credentials.json"
+                groups="internal"
             }
         }
         release {
@@ -52,18 +53,6 @@ android {
     }
     buildFeatures {
         viewBinding true
-    }
-}
-
-task getVersionName {
-    doLast {
-        println android.defaultConfig.versionName
-    }
-}
-
-task getVersionCode {
-    doLast {
-        println android.defaultConfig.versionCode
     }
 }
 
