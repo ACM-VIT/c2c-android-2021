@@ -95,4 +95,17 @@
     <string name="event_over">Event Over</string>
     <string name="coming_soon">Coming Soon</string>
 
+
+    <string name="tracks">Tracks</string>
+    <string name="placeholder_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus. Tristique nulla aliquet enim tortor at auctor urna nunc. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum fusce. Ante in nibh mauris cursus mattis molestie a iaculis at. Sodales neque sodales ut etiam sit. Non curabitur gravida arcu ac. Adipiscing vitae proin sagittis nisl. Vitae justo eget magna fermentum iaculis eu. Arcu felis bibendum ut tristique et egestas. Placerat duis ultricies lacus sed turpis tincidunt id. Est ullamcorper eget nulla facilisi etiam dignissim diam quis. Arcu vitae elementum curabitur vitae nunc. Sagittis id consectetur purus ut faucibus. Quisque id diam vel quam elementum pulvinar etiam. Gravida cum sociis natoque penatibus et magnis. Leo a diam sollicitudin tempor id eu nisl nunc. Facilisis leo vel fringilla est. Egestas erat imperdiet sed euismod nisi porta. Auctor augue mauris augue neque gravida in fermentum et sollicitudin. Integer quis auctor elit sed vulputate mi sit amet mauris. Tincidunt id aliquet risus feugiat. Imperdiet massa tincidunt nunc pulvinar sapien. Consequat nisl vel pretium lectus quam id leo. Egestas tellus rutrum tellus pellentesque eu tincidunt. Sed blandit libero volutpat sed cras ornare arcu. Bibendum ut tristique et egestas. At volutpat diam ut venenatis tellus in metus. Ut lectus arcu bibendum at. Nulla facilisi cras fermentum odio eu. Adipiscing bibendum est ultricies integer quis auctor. Id volutpat lacus laoreet non curabitur gravida arcu ac. Venenatis lectus magna fringilla urna porttitor rhoncus. Turpis egestas sed tempus urna et. Tortor dignissim convallis aenean et tortor at risus. Ut aliquam purus sit amet luctus venenatis. Massa massa ultricies mi quis hendrerit dolor magna eget est. Neque gravida in fermentum et. Neque sodales ut etiam sit amet nisl purus in mollis. Non tellus orci ac auctor augue mauris. Nullam ac tortor vitae purus faucibus. Iaculis eu non diam phasellus vestibulum lorem sed risus ultricies. Amet cursus sit amet dictum sit amet justo. Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida hendrerit. Mi sit amet mauris commodo quis imperdiet massa tincidunt nunc.</string>
+    <string name="time">Time</string>
+    <string name="hrs">HRS</string>
+    <string name="mins">MINS</string>
+    <string name="secs">SECS</string>
+    <string name="hackathon_will_start_in">Hackathon will start in</string>
+
+    <string name="submision_countdown">Submission ends in %s hrs : %s mins : %s secs</string>
+    <string name="downloading">Downloading %s</string>
+    <string name="downloaded">Downloaded %s</string>
+
 </resources>

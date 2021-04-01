@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.databinding.FragmentSponsersBinding
 import com.acmvit.c2c2021.ui.adapters.SponsorAdapter
 import com.acmvit.c2c2021.viewmodels.SponsorViewModel

@@ -1,15 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".TracksFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.acmvit.c2c2021.viewmodels.TracksViewModel" />
+        <import
+            alias="utils"
+            type="com.acmvit.c2c2021.util.GeneralUtilsKt"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="30sp"
-        android:text="Tracks" />
+        android:animateLayoutChanges="true">
 
-</FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tracks_rv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:spanCount="2"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_track"
+            tools:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/dmsans_bold"
+            android:text="@string/tracks"
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:minHeight="100dp"
+            android:paddingTop="200dp"
+            app:cardBackgroundColor="@{viewmodel.submissionCountDownColor}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_min="30dp"
+            app:layout_constraintHeight_percent="0.08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/SubmissionCountdownCardShapeAppearance"
+            tools:cardBackgroundColor="@color/primaryGreen">
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="3dp"
+            android:elevation="3dp"
+            android:fontFamily="@font/dmsans_bold"
+            android:text="@{utils.format(@string/submision_countdown, viewmodel.submissionEndCountDown.toArray())}"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/materialCardView"
+            tools:text="@string/submision_countdown" />
+
+        <ImageView
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/tracks_blurred_view"
+            app:layout_constraintBottom_toBottomOf="@+id/tracks_rv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/materialCardView" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:elevation="8dp"
+            android:fontFamily="@font/dmsans_bold"
+            android:text="@string/hackathon_will_start_in"
+            android:textAlignment="center"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.8" />
+
+        <LinearLayout
+            android:id="@+id/countdown_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.16000003">
+
+            <include
+                android:id="@+id/start_cd_hours"
+                layout="@layout/custom_time_card"
+                bind:time="@{viewmodel.eventStartCountDown[0]}"
+                bind:timeUnit="@{@string/hrs}"
+                tools:layout_editor_absoluteX="203dp" />
+
+            <include
+                android:id="@+id/start_cd_mins"
+                layout="@layout/custom_time_card"
+                bind:time="@{viewmodel.eventStartCountDown[1]}"
+                bind:timeUnit="@{@string/mins}" />
+
+            <include
+                android:id="@+id/start_cd_secs"
+                layout="@layout/custom_time_card"
+                bind:time="@{viewmodel.eventStartCountDown[2]}"
+                bind:timeUnit="@{@string/secs}" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/pre_event_start_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="8dp"
+            app:constraint_referenced_ids="view,textView6,countdown_card"
+            bind:isGone="@{viewmodel.hasEventStarted}"
+            tools:visibility="invisible" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/pre_submission_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="materialCardView,textView4"
+            bind:isGone="@{!viewmodel.hasSubmissionStarted}" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/circular_button_ripple"
+            android:padding="8dp"
+            android:onClick="@{() -> viewmodel.downloadAllTracks()}"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="@+id/textView3"
+            bind:srcCompat="@drawable/ic_download" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

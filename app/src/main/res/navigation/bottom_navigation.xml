@@ -16,11 +16,6 @@
         android:label="fragment_notifications_and_speakers"
         tools:layout="@layout/fragment_notifications_and_speakers" />
     <fragment
-        android:id="@+id/nav_tracks"
-        android:name="com.acmvit.c2c2021.ui.tracks.TracksFragment"
-        android:label="fragment_tracks"
-        tools:layout="@layout/fragment_tracks" />
-    <fragment
         android:id="@+id/nav_information_and_sponsors"
         android:name="com.acmvit.c2c2021.ui.info_sponsers.InformationAndSpeakersFragment"
         android:label="fragment_information_and_sponsors"
@@ -30,5 +25,23 @@
         android:name="com.acmvit.c2c2021.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <navigation android:id="@+id/nav_tracks"
+        app:startDestination="@id/nav_all_tracks">
+        <fragment
+            android:id="@+id/nav_all_tracks"
+            android:name="com.acmvit.c2c2021.ui.tracks.TracksFragment"
+            android:label="fragment_tracks"
+            tools:layout="@layout/fragment_tracks" >
+            <action
+                android:id="@+id/action_nav_tracks_to_trackBottomDialog"
+                app:destination="@id/nav_track_bottom_dialog" />
+        </fragment>
+
+        <dialog
+            android:id="@+id/nav_track_bottom_dialog"
+            android:name="com.acmvit.c2c2021.ui.tracks.TrackBottomDialog"
+            android:label="TrackBottomDialog" />
+    </navigation>
 
 </navigation>
