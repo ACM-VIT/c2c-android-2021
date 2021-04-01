@@ -13,9 +13,9 @@ import com.acmvit.c2c2021.model.Track
 import com.acmvit.c2c2021.repository.ResourcesRepository
 import com.acmvit.c2c2021.util.*
 import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.functions.Consumer
 import org.koin.android.ext.android.get
 import java.util.*
-
 
 class TracksViewModel(
     private val app: Application
@@ -31,7 +31,7 @@ class TracksViewModel(
     val hasSubmissionStarted = MutableLiveData(false)
     val timings: MutableLiveData<Timings> = MutableLiveData()
     val tracks: MutableLiveData<List<Track>> = MutableLiveData()
-    val eventStartCountDown: MutableLiveData<List<String>> = MutableLiveData()
+    val eventStartCountDown: MutableLiveData<List<String>> = MutableLiveData(listOf("00", "00", "00"))
     val submissionEndCountDown: MutableLiveData<List<String>> = MutableLiveData()
     val selectedTrack: MutableLiveData<Track> = MutableLiveData(null)
     val viewEffect: SingleLiveEvent<ViewEffect> = SingleLiveEvent()
@@ -39,43 +39,42 @@ class TracksViewModel(
 
     init {
         disposable.addAll(
-            resourcesRepository.getCurrentTimeDiff().subscribe {
-                if (it.status == Status.SUCCESS && it.data != null) {
+            resourcesRepository.getCurrentTimeDiff().subscribe ({
+                if (it.data != null) {
                     timeDiff = it.data
                 }
-            },
+            }, GenericErrorHandler()),
 
-            _eventStartCountDown.asLongObservable().subscribe { startCd ->
+            _eventStartCountDown.asLongObservable().subscribe ({ startCd ->
                 eventStartCountDown.value = startCd.map { String.format("%02d", it) }
                 checkEventStart()
-            },
+            }, GenericErrorHandler()),
 
-            _submissionEndCountDown.asLongObservable().subscribe { it ->
+            _submissionEndCountDown.asLongObservable().subscribe ({ it ->
                 submissionEndCountDown.value = it.map { String.format("%02d", it) }
                 Log.d(TAG, ": ${submissionEndCountDown.value}")
                 submissionCountDownColor.value = _submissionEndCountDown
-                    .getCorrespondingColor(app.COUNTDOWN_COLOR_MAP())
+                    .getCorrespondingColor(app.COUNTDOWN_COLOR_MAP)
 
                 checkSubmissionsStart()
-            },
+            }, GenericErrorHandler()),
 
-            resourcesRepository.getTimings().subscribe { timingsRes ->
-                if (timingsRes.status == Status.SUCCESS) {
+            resourcesRepository.getTimings().subscribe ({ timingsRes ->
+                if (timingsRes.data != null) {
                     val times = timingsRes.data
                     timings.value = times
                     checkEventStart()
                     checkSubmissionsStart()
 
-                    times?.eventStart?.minus(getCurrentTime())?.let { it1 ->
-                        Log.d(TAG, "${getCurrentTime()}: ${times.eventStart} :$it1")
+                    times.eventStart?.minus(getCurrentTime())?.let { it1 ->
                         _eventStartCountDown.reset(it1)
                     }
 
-                    times?.submissionEnd?.minus(getCurrentTime())?.let { it1 ->
+                    times.submissionEnd?.minus(getCurrentTime())?.let { it1 ->
                         _submissionEndCountDown.reset(it1)
                     }
                 }
-            }
+            }, GenericErrorHandler())
         )
     }
 
@@ -111,7 +110,6 @@ class TracksViewModel(
         }
     }
 
-
     private fun getCurrentTime() = Date().time + timeDiff
     private fun checkDownloadPermissions(todo: () -> Unit): Boolean {
         val permitted =
@@ -127,15 +125,14 @@ class TracksViewModel(
         return permitted
     }
 
-
     private fun checkEventStart() {
         if (timings.value?.eventStart!! <= getCurrentTime() && hasEventStarted.value == false) {
             hasEventStarted.value = true
-            disposable.add(resourcesRepository.getTracks().subscribe {
+            disposable.add(resourcesRepository.getTracks().subscribe({
                 if (it.status == Status.SUCCESS) {
                     tracks.value = it.data
                 }
-            })
+            }, GenericErrorHandler()))
         }
 
         if (timings.value?.eventStart!! > getCurrentTime() && hasEventStarted.value == true) {
@@ -164,8 +161,24 @@ class TracksViewModel(
             val todo: (isSuccessful: Boolean) -> Unit
         ) : ViewEffect()
 
-        data class OpenIntent(val intent: String, val uri: Uri, val flags: Int) : ViewEffect()
+        data class OpenPdf(val uri: Uri) : ViewEffect()
         data class ShowSnackbar(val msg: String) : ViewEffect()
     }
 
+    inner class GenericErrorHandler : Consumer<Throwable> {
+        override fun accept(t: Throwable?) {
+            viewEffect.setValue(
+                ViewEffect.ShowSnackbar(
+                    when (t) {
+                        is NetworkException -> app.getString(R.string.network_err_msg)
+                        else -> {
+                            Log.d(TAG, "accept: $t")
+                            app.getString(R.string.randomErr)
+                        }
+                    }
+                )
+            )
+        }
+    }
+    
 }

@@ -107,5 +107,7 @@
     <string name="submision_countdown">Submission ends in %s hrs : %s mins : %s secs</string>
     <string name="downloading">Downloading %s</string>
     <string name="downloaded">Downloaded %s</string>
+    <string name="network_err_msg">Please Check Your Network Connection</string>
+    <string name="randomErr">Experiencing Problems Please Try Again . . .</string>
 
 </resources>
