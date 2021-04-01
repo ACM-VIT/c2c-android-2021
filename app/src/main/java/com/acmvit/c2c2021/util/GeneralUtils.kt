@@ -2,14 +2,12 @@ package com.acmvit.c2c2021.util
 
 import android.app.DownloadManager
 import android.content.Context
-import android.net.Uri
+import android.net.*
+import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import com.google.android.material.snackbar.Snackbar
-
-private const val TAG = "GeneralUtils"
-
-const val EXTERNAL_STORAGE = "C2C 2021"
 
 fun String.format(args: Array<Any>?) = args?.let { this.format(*it) }
 
@@ -24,7 +22,7 @@ fun downloadFile(url: String, name: String, context: Context): Long? {
         .setAllowedOverMetered(true)
         .setAllowedOverRoaming(true)
 
-    val downloadManager = ContextCompat.getSystemService(context, DownloadManager::class.java)
+    val downloadManager = getSystemService(context, DownloadManager::class.java)
     return downloadManager?.enqueue(request)
 }
 

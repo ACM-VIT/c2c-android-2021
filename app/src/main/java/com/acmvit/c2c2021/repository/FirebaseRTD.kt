@@ -1,6 +1,8 @@
 package com.acmvit.c2c2021.repository
 
+import com.acmvit.c2c2021.C2CApp
 import com.acmvit.c2c2021.util.Resource
+import com.acmvit.c2c2021.util.Status
 import com.google.firebase.database.*
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableEmitter
@@ -11,7 +13,7 @@ class FirebaseRTD(
     fun <T : Any> getStreamAt(
         pathString: String,
         emit: (snap: DataSnapshot) -> T?
-    ): Observable<Resource<T>> = Observable.create<Resource<T>> {
+    ): Observable<Resource<T>> = Observable.create {
         it.onNext(Resource.loading(null))
         val eventListener = ValueEventListenerSimple(it, emit)
         val ref = databaseReference.child(pathString)
@@ -27,18 +29,31 @@ class FirebaseRTD(
         databaseReference.child(pathString).get().addOnSuccessListener {
             emitter.onNext(Resource.success(emit(it)))
         }.addOnFailureListener {
-            emitter.onNext(Resource.error(it.toString(), null))
+            emitter.onError(it)
         }
     }
 
-    fun <T : Any> getCachedValueAt( pathString: String, emit: (snap: DataSnapshot) -> T?): Observable<Resource<T>> =
-        Observable.create<Resource<T>> {
+    fun <T : Any> getCachedValueAt(
+        pathString: String,
+        emit: (snap: DataSnapshot) -> T?
+    ): Observable<Resource<T>> =
+        Observable.create {
             it.onNext(Resource.loading(null))
             val ref = databaseReference.child(pathString)
             ref.addListenerForSingleValueEvent(ValueEventListenerSimple(it, emit))
         }
 
-    class ValueEventListenerSimple<T : Any> (
+    fun setValueAt(pathString: String, value: Any?) = Observable.create<Status> { emitter ->
+        emitter.onNext(Status.LOADING)
+        databaseReference.child(pathString).setValue(value).addOnSuccessListener {
+            emitter.onNext(Status.SUCCESS)
+        }.addOnFailureListener {
+            emitter.onError(it)
+        }
+
+    }
+
+    class ValueEventListenerSimple<T : Any>(
         private val emitter: ObservableEmitter<Resource<T>>,
         private val emit: (snap: DataSnapshot) -> T?
     ) : ValueEventListener {
@@ -47,7 +62,7 @@ class FirebaseRTD(
         }
 
         override fun onCancelled(error: DatabaseError) {
-            emitter.onNext(Resource.error(error.toString(), null))
+            emitter.onError(error.toException())
         }
     }
 

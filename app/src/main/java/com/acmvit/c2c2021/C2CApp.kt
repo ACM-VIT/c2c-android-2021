@@ -1,11 +1,25 @@
 package com.acmvit.c2c2021
 
 import android.app.Application
+import android.net.ConnectivityManager
+import android.net.Network
+import android.net.NetworkCapabilities
+import androidx.core.content.getSystemService
 import com.google.firebase.FirebaseApp
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.subjects.BehaviorSubject
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
+import java.util.*
+
+var isConnected: Boolean = false
 
 class C2CApp: Application() {
+    companion object {
+        private val _isConnectedObservable: BehaviorSubject<Boolean> = BehaviorSubject.createDefault(false)
+        val isConnectedObservable: Observable<Boolean>
+            get() = _isConnectedObservable
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -14,6 +28,21 @@ class C2CApp: Application() {
             androidContext(this@C2CApp)
             modules(listOf(appModule, repoModule))
         }
+
+        getSystemService<ConnectivityManager>()?.registerDefaultNetworkCallback(ConnectivityCallback())
+    }
+
+    class ConnectivityCallback : ConnectivityManager.NetworkCallback() {
+        override fun onCapabilitiesChanged(network: Network, capabilities: NetworkCapabilities) {
+            val connected = capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+            _isConnectedObservable.onNext(connected)
+            isConnected = connected
+        }
+        override fun onLost(network: Network) {
+            _isConnectedObservable.onNext(false)
+            isConnected = false
+        }
+
     }
 
 }
