@@ -5,7 +5,7 @@ import com.acmvit.c2c2021.repository.TimelineRepository
 
 class TimelineViewModel : ViewModel() {
     private var timelineRepository = TimelineRepository()
-    val sponsorList = timelineRepository.timelineList
+    val timelineList = timelineRepository.timelineList
 
     init {
         timelineRepository.fetchTimeline()
