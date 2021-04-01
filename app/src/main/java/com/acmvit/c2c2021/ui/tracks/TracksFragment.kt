@@ -1,6 +1,5 @@
 package com.acmvit.c2c2021.ui.tracks
 
-import android.app.Activity
 import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
@@ -12,11 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavAction
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.GridLayoutManager
@@ -24,11 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.databinding.FragmentTracksBinding
 import com.acmvit.c2c2021.util.showSnackbar
-import org.koin.android.ext.android.bind
-import org.koin.android.ext.android.getKoin
-import org.koin.android.viewmodel.ext.android.sharedViewModel
-import java.util.*
-import kotlin.concurrent.schedule
+import com.acmvit.c2c2021.viewmodels.TracksViewModel
 import kotlin.properties.Delegates
 
 class TracksFragment : Fragment() {

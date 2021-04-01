@@ -1,4 +1,4 @@
-package com.acmvit.c2c2021.models
+package com.acmvit.c2c2021.model
 
 data class Track(
     val download: String? = null,

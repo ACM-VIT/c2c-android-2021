@@ -1,4 +1,4 @@
-package com.acmvit.c2c2021.data
+package com.acmvit.c2c2021.repository
 
 import com.acmvit.c2c2021.util.Resource
 import com.google.firebase.database.*

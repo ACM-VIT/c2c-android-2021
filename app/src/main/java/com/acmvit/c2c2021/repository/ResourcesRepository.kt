@@ -1,13 +1,12 @@
-package com.acmvit.c2c2021.data
+package com.acmvit.c2c2021.repository
 
-import com.acmvit.c2c2021.models.Timings
-import com.acmvit.c2c2021.models.Track
+import com.acmvit.c2c2021.model.Timings
+import com.acmvit.c2c2021.model.Track
 import com.acmvit.c2c2021.util.Resource
 import com.google.firebase.database.*
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import java.util.*
-import java.util.concurrent.atomic.LongAccumulator
 
 class ResourcesRepository(
     private val rtd: FirebaseRTD

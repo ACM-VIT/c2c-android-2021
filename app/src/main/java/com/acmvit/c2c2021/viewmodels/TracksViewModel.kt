@@ -1,4 +1,4 @@
-package com.acmvit.c2c2021.ui.tracks
+package com.acmvit.c2c2021.viewmodels
 
 import android.Manifest
 import android.app.Application
@@ -8,9 +8,9 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.acmvit.c2c2021.R
-import com.acmvit.c2c2021.models.Timings
-import com.acmvit.c2c2021.models.Track
-import com.acmvit.c2c2021.data.ResourcesRepository
+import com.acmvit.c2c2021.model.Timings
+import com.acmvit.c2c2021.model.Track
+import com.acmvit.c2c2021.repository.ResourcesRepository
 import com.acmvit.c2c2021.util.*
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import org.koin.android.ext.android.get

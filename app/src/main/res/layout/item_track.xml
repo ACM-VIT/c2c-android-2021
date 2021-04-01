@@ -7,7 +7,7 @@
     <data>
         <variable
             name="track"
-            type="com.acmvit.c2c2021.models.Track" />
+            type="com.acmvit.c2c2021.model.Track" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

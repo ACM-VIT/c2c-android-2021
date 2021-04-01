@@ -1,7 +1,6 @@
 package com.acmvit.c2c2021
 
 import android.app.Application
-import com.acmvit.c2c2021.models.Timings
 import com.google.firebase.FirebaseApp
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin

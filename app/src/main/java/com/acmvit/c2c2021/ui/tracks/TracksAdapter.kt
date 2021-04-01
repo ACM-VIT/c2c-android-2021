@@ -1,11 +1,10 @@
 package com.acmvit.c2c2021.ui.tracks
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.acmvit.c2c2021.databinding.ItemTrackBinding
-import com.acmvit.c2c2021.models.Track
+import com.acmvit.c2c2021.model.Track
 
 class TracksAdapter(
     private var tracks: List<Track>,

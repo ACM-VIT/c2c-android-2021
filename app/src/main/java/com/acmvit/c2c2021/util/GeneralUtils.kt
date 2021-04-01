@@ -5,7 +5,6 @@ import android.content.Context
 import android.net.Uri
 import android.view.View
 import androidx.core.content.ContextCompat
-import com.acmvit.c2c2021.R
 import com.google.android.material.snackbar.Snackbar
 
 private const val TAG = "GeneralUtils"
