@@ -105,7 +105,7 @@
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/timeline_item_subtext"
-                app:srcCompat="@drawable/ic_calendar_small" />
+                app:srcCompat="@drawable/ic_calendar_small_bright" />
 
             <TextView
                 android:id="@+id/timeline_item_timing_text"
