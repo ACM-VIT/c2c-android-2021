@@ -7,6 +7,7 @@
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:fontFamily">@font/dmsans_regular</item>
+        <item name="snackbarStyle">@style/AppSnackbar</item>
     </style>
 
     <style name="TextButton" parent="Widget.MaterialComponents.Button.TextButton">
@@ -44,6 +45,10 @@
     <style name="MainCountDownTextAppearance" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="fontFamily">@font/akhira_expanded</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppSnackbar" parent="Widget.MaterialComponents.Snackbar">
+        <item name="android:layout_margin">32dp</item>
     </style>
 
 </resources>

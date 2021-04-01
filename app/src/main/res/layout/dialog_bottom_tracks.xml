@@ -4,21 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewmodel"
+            type="com.acmvit.c2c2021.ui.tracks.TracksViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/colorSurface">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/track_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"
             android:elevation="3dp"
+            android:text="@{viewmodel.selectedTrack.name}"
             android:fontFamily="@font/dmsans_bold"
             android:includeFontPadding="false"
             tools:text="Space"
@@ -27,38 +30,38 @@
             app:layout_constraintBottom_toBottomOf="@+id/cardView"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:id="@+id/scrollView2"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="150dp"
             android:clipToPadding="false"
-            android:requiresFadingEdge="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/track_name">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/problem_statement_body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fadingEdge="vertical"
                 android:justificationMode="inter_word"
                 android:lineSpacingExtra="1sp"
                 android:paddingStart="16dp"
                 android:paddingTop="16dp"
                 android:paddingEnd="16dp"
+                android:text="@{viewmodel.selectedTrack.problemStatement}"
                 android:textSize="16sp"
+                tools:targetApi="o"
                 tools:text="@string/placeholder_text" />
 
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:layout_marginTop="4dp"
             app:cardBackgroundColor="@color/colorSurfaceLight"
+            app:cardCornerRadius="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,9 +75,11 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
+            android:onClick="@{() -> viewmodel.downloadTrack(viewmodel.selectedTrack)}"
             app:backgroundTint="@color/primaryGreen"
-            app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
-            app:layout_constraintEnd_toEndOf="@+id/scrollView2"
-            app:srcCompat="@drawable/ic_download" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_download"
+            app:tint="@android:color/white" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

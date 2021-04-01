@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="time"
+            type="String" />
+        <variable
+            name="timeUnit"
+            type="String" />
     </data>
 
     <merge
@@ -31,6 +37,9 @@
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:minEms="2"
+                    android:text="@{time}"
+                    android:textAlignment="center"
                     android:textAppearance="@style/MainCountDownTextAppearance"
                     android:textColor="@color/primaryGreen"
                     android:textSize="44sp"
@@ -59,7 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:text="@string/secs"
+                    android:text="@{timeUnit}"
                     android:textAppearance="@style/MainCountDownTextAppearance"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"

@@ -104,4 +104,8 @@
     <string name="secs">SECS</string>
     <string name="hackathon_will_start_in">Hackathon will start in</string>
 
+    <string name="submision_countdown">Submission ends in %s hrs : %s mins : %s secs</string>
+    <string name="downloading">Downloading %s</string>
+    <string name="downloaded">Downloaded %s</string>
+
 </resources>
