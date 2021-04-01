@@ -43,7 +43,6 @@ class TrackBottomDialog: BottomSheetDialogFragment() {
                 }
             }
         }
-
     }
 
     override fun onDismiss(dialog: DialogInterface) {
