@@ -18,6 +18,13 @@ class Cache (
             editor.apply()
         }
 
+    var hasEventStarted: Boolean
+        get() = pref.getBoolean(EVENT_STARTED_CACHE, false)
+        set(hasStarted) {
+            editor.putBoolean(EVENT_STARTED_CACHE, hasStarted)
+            editor.apply()
+        }
+
     fun clearCache() {
         editor.clear()
         editor.apply()
@@ -27,6 +34,7 @@ class Cache (
         private const val PRIVATE_MODE = 0
         private const val PREF_NAME = "BaseCache"
         private const val TIMINGS_CACHE = "TimingsCache"
+        private const val EVENT_STARTED_CACHE = "EventStarted"
     }
 
 }

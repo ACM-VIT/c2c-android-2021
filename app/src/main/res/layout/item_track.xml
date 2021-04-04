@@ -13,7 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp"
+        android:background="@color/backgroundColor"
+        android:foreground="?attr/selectableItemBackground"
         android:stateListAnimator="@animator/card_state_list_animator">
 
         <ImageView
@@ -24,6 +25,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            bind:crossFade="@{true}"
             bind:imageUrl="@{track.image}"
             tools:srcCompat="@drawable/ic_track_placeholder" />
 

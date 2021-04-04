@@ -32,7 +32,6 @@ android {
     buildTypes {
         debug {
             firebaseAppDistribution {
-
                 appId= "1:379018396837:android:6f884f3213bd76e126b94c"
                 releaseNotesFile = ".github/RELEASE_NOTES.txt"
                 apkPath="app/build/outputs/apk/debug/app-debug.apk"
@@ -110,6 +109,9 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
 
     //Gson
-    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    //Shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
 }

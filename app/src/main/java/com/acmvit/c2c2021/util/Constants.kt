@@ -6,7 +6,8 @@ import com.acmvit.c2c2021.R
 import java.util.Calendar.MILLISECOND
 import java.util.concurrent.TimeUnit
 
-const val EXTERNAL_STORAGE = "C2C_2021"
+const val APP_EXTERNAL_STORAGE = "C2C 2021"
+const val MIN_SNACKBAR_OFFSET = 30_000L
 
 val Context.COUNTDOWN_COLOR_MAP
     get() = mapOf(
@@ -27,5 +28,6 @@ val Context.COUNTDOWN_COLOR_MAP
     )
 
 class NetworkException: Exception("Unable to connect to the internet")
+
 
 
