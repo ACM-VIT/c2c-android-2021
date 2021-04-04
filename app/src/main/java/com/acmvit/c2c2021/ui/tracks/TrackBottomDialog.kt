@@ -1,22 +1,31 @@
 package com.acmvit.c2c2021.ui.tracks
 
+import android.content.ActivityNotFoundException
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.FileProvider
 import androidx.navigation.navGraphViewModels
+import com.acmvit.c2c2021.BuildConfig
 import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.databinding.DialogBottomTracksBinding
+import com.acmvit.c2c2021.util.openPdf
 import com.acmvit.c2c2021.util.showSnackbar
 import com.acmvit.c2c2021.viewmodels.TracksViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import java.io.File
+
 
 class TrackBottomDialog: BottomSheetDialogFragment() {
     private lateinit var binding: DialogBottomTracksBinding
     private val viewModel by navGraphViewModels<TracksViewModel>(R.id.nav_tracks)
 
-    override fun onCreateView (
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
@@ -36,10 +45,14 @@ class TrackBottomDialog: BottomSheetDialogFragment() {
     private fun initObservers() {
         viewModel.selectedTrack.observe(viewLifecycleOwner) { if (it == null) dismiss() }
 
-        viewModel.viewEffect.observe(viewLifecycleOwner) {
+        viewModel.dialogViewEffect.observe(viewLifecycleOwner) {
             when(it) {
                 is TracksViewModel.ViewEffect.ShowSnackbar -> {
-                    showSnackbar(binding.root, it.msg)
+                    showSnackbar(binding.root, it.msg, it.actionName, it.action)
+                }
+
+                is TracksViewModel.ViewEffect.OpenPdf -> {
+                    context?.openPdf(it.file)
                 }
             }
         }

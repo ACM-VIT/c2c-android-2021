@@ -38,11 +38,10 @@ class C2CApp: Application() {
             _isConnectedObservable.onNext(connected)
             isConnected = connected
         }
+
         override fun onLost(network: Network) {
             _isConnectedObservable.onNext(false)
             isConnected = false
         }
-
     }
-
 }
