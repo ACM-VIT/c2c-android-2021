@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewmodel"
             type="com.acmvit.c2c2021.viewmodels.TracksViewModel" />
@@ -14,7 +15,6 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/backgroundColor"
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,9 +23,9 @@
             android:layout_height="wrap_content">
 
             <include
-                android:id="@+id/placeholder_layout"
                 android:layout_height="0dp"
                 android:layout_width="0dp"
+                android:id="@+id/placeholder_layout"
                 bind:visibility="@{viewmodel.tracks.empty}"
                 layout="@layout/tracks_placeholder_layout"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3"
-                app:spanCount="2"
+                app:spanCount="4"
                 tools:itemCount="10"
                 tools:listitem="@layout/item_track"
                 tools:orientation="vertical" />
@@ -101,43 +101,46 @@
                 android:id="@+id/view"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:clickable="true"
                 android:elevation="8dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/tracks_blurred_view"
                 app:layout_constraintBottom_toBottomOf="@+id/tracks_rv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/submission_countdown_card"
-                android:focusable="true" />
+                app:layout_constraintTop_toTopOf="@+id/submission_countdown_card" />
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="250dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginBottom="28dp"
                 android:elevation="8dp"
                 android:fontFamily="@font/dmsans_bold"
                 android:text="@string/hackathon_will_start_in"
                 android:textAlignment="center"
                 android:textSize="32sp"
+                app:layout_constraintBottom_toTopOf="@+id/countdown_card"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.22000003"
+                app:layout_constraintVertical_chainStyle="packed" />
 
             <LinearLayout
                 android:id="@+id/countdown_card"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
                 android:elevation="8dp"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/textView6"
-                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="@+id/view"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/view"
                 app:layout_constraintTop_toBottomOf="@+id/textView6"
-                app:layout_constraintVertical_bias="0.16000003">
+                app:layout_constraintVertical_chainStyle="packed">
 
                 <Space
                     android:layout_width="1dp"
@@ -187,16 +190,14 @@
                 android:elevation="8dp"
                 android:visibility="visible"
                 app:constraint_referenced_ids="view,textView6,countdown_card"
-                tools:layout_editor_absoluteY="10dp"
-                tools:visibility="gone" />
+                tools:layout_editor_absoluteY="10dp" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/post_submission_start_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
-                app:constraint_referenced_ids="submission_countdown_card,textView4"
-                tools:visibility="gone" />
+                app:constraint_referenced_ids="submission_countdown_card,textView4" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -206,17 +207,11 @@
                 android:adjustViewBounds="true"
                 android:background="@drawable/circular_button_ripple"
                 android:onClick="@{() -> viewmodel.downloadAllTracks()}"
-                android:padding="10dp"
+                android:padding="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView3"
                 app:layout_constraintStart_toEndOf="@+id/textView3"
                 app:layout_constraintTop_toTopOf="@+id/textView3"
                 bind:srcCompat="@drawable/ic_download" />
-
-            <androidx.constraintlayout.widget.Group
-                android:id="@+id/main_group"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:constraint_referenced_ids="tracks_rv,textView3" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>
