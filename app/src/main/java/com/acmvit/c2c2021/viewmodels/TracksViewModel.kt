@@ -267,6 +267,7 @@ class TracksViewModel(
 
     override fun onCleared() {
         super.onCleared()
+        Log.d(TAG, "onCleared: ")
         disposable.dispose()
         _submissionEndCountDown.stop()
         _eventStartCountDown.stop()

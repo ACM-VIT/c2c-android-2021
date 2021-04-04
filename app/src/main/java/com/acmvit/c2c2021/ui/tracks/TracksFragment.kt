@@ -1,5 +1,6 @@
 package com.acmvit.c2c2021.ui.tracks
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -28,6 +29,7 @@ import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.binding.setVisibility
 import com.acmvit.c2c2021.binding.setVisibilityGone
 import com.acmvit.c2c2021.databinding.FragmentTracksBinding
+import com.acmvit.c2c2021.ui.PrizesActivity
 import com.acmvit.c2c2021.util.*
 import com.acmvit.c2c2021.viewmodels.TracksViewModel
 import kotlinx.android.synthetic.main.fragment_tracks.*
@@ -77,6 +79,10 @@ class TracksFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewmodel = viewModel
+
+        binding.prizeBtn.setOnClickListener {
+            startActivity(Intent(context, PrizesActivity::class.java))
+        }
 
         initRv(binding.tracksRv)
         initObservers()
