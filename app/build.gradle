@@ -25,10 +25,6 @@ android {
         dataBinding true
     }
 
-    buildFeatures {
-        dataBinding true
-    }
-
     buildTypes {
         debug {
             firebaseAppDistribution {
@@ -50,9 +46,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
-    }
-    buildFeatures {
-        viewBinding true
     }
 }
 
