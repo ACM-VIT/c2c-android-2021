@@ -31,7 +31,7 @@ class TimelineAdapter(private val timelineList: List<TimelineItem>) :
         holder.timelineDate.text = "${dateHolder[1]}${dateSuffixes[dateHolder[1].toInt()]}"
         d("Timelineprint", "${unixToHour(timelineList[position].endUnix)}");
         holder.timelineTimingText.text =
-            "${unixToHour(timelineList[position].startUnix)}-${unixToHour(timelineList[position].endUnix)}"
+            "${unixToHour(timelineList[position].startUnix)} - ${unixToHour(timelineList[position].endUnix)}"
     }
 
     override fun getItemCount(): Int = timelineList.size
@@ -44,7 +44,7 @@ class TimelineAdapter(private val timelineList: List<TimelineItem>) :
 
     @SuppressLint("SimpleDateFormat")
     private fun unixToHour(unix: Long): String {
-        val formatter = SimpleDateFormat("hhaaa")
+        val formatter = SimpleDateFormat("haaa")
         return formatter.format(unix * 1000)
     }
 
