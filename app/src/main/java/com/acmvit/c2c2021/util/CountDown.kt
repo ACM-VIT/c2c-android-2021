@@ -20,7 +20,6 @@ class CountDown(
     }
 
     fun reset(fromms: Long) {
-        Log.d(TAG, "reset: ")
         timeRem = fromms
         disposable?.dispose()
         disposable = Observable
@@ -30,7 +29,7 @@ class CountDown(
                 timeRem -= 1000
                 if (timeRem < 0) {
                     disposable?.dispose()
-                    return@subscribe
+                    timeRem = 0
                 }
                 subject.onNext(getAccTimeDiff(timeRem))
             }

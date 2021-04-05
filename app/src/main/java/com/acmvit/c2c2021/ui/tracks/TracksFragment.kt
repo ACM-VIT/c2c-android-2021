@@ -1,37 +1,52 @@
 package com.acmvit.c2c2021.ui.tracks
 
 import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.transition.AutoTransition
+import android.transition.Slide
+import android.transition.Transition
+import android.transition.TransitionManager
 import android.util.Log
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.transition.addListener
+import androidx.core.view.isGone
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.acmvit.c2c2021.R
+import com.acmvit.c2c2021.binding.setVisibility
+import com.acmvit.c2c2021.binding.setVisibilityGone
 import com.acmvit.c2c2021.databinding.FragmentTracksBinding
-import com.acmvit.c2c2021.util.showSnackbar
+import com.acmvit.c2c2021.ui.PrizesActivity
+import com.acmvit.c2c2021.util.*
 import com.acmvit.c2c2021.viewmodels.TracksViewModel
-import kotlin.properties.Delegates
+import kotlinx.android.synthetic.main.fragment_tracks.*
+import org.koin.android.ext.android.bind
+import java.time.Duration
+import java.util.*
 
 class TracksFragment : Fragment() {
     private lateinit var storagePermRequester: ActivityResultLauncher<Array<String>>
-    private var orientation by Delegates.notNull<Int>()
     private val TAG = "TracksFragment"
     private lateinit var tracksRvAdapter: TracksAdapter
     private lateinit var binding: FragmentTracksBinding
     private val viewModel by navGraphViewModels<TracksViewModel>(R.id.nav_tracks)
     private val navController by lazy { findNavController() }
     private var permissionRequest: TracksViewModel.ViewEffect.RequestPermission? = null
+    private var lastSnackBarMsg = ""
+    private var lastSnackBarExec = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,58 +65,117 @@ class TracksFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.verifyClock()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        viewModel.invalidateClock()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        orientation = resources.configuration.orientation
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewmodel = viewModel
 
-        init()
+        binding.prizeBtn.setOnClickListener {
+            startActivity(Intent(context, PrizesActivity::class.java))
+        }
+
         initRv(binding.tracksRv)
         initObservers()
     }
 
-    private fun init() {
-        Log.d(TAG, "init: ")
-        binding.countdownCard.orientation =
-            if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                LinearLayout.HORIZONTAL
-            } else {
-                LinearLayout.VERTICAL
-            }
-    }
-
     private fun initRv(rv: RecyclerView) {
-        val spanCount = if (orientation == Configuration.ORIENTATION_LANDSCAPE) 4 else 2
+        tracksRvAdapter = TracksAdapter(listOf()) {
+            delayedExecute(300) { viewModel.selectTrack(it) }
+        }
 
-        rv.layoutManager = GridLayoutManager(
-            context,
-            spanCount, GridLayoutManager.VERTICAL, false
+        rv.addItemDecoration(
+            GridSpacingItemDecoration(
+                (rv.layoutManager as GridLayoutManager).spanCount,
+                30, true
+            )
         )
 
-        tracksRvAdapter = TracksAdapter(listOf()) {
-            Handler(Looper.getMainLooper()).postDelayed(
-                {
-                    viewModel.selectTrack(it)
-                },
-                500
-            )
-        }
         rv.adapter = tracksRvAdapter
     }
 
+    private fun runWithAnimation(
+        duration: Long = 500,
+        transition: Transition = AutoTransition(),
+        after: () -> Unit = {},
+        block: () -> Unit
+    ) {
+
+        transition.addListener({
+            TransitionManager.endTransitions(binding.rootLayout)
+            after()
+        })
+
+        TransitionManager.beginDelayedTransition(binding.rootLayout, transition.apply {
+            interpolator = AccelerateDecelerateInterpolator()
+            this.duration = duration
+        })
+
+        block()
+    }
+
     private fun initObservers() {
-        viewModel.tracks.observe(viewLifecycleOwner) { tracksRvAdapter.setTracks(it) }
+        viewModel.hasSubmissionStarted.observe(viewLifecycleOwner) {
+            delayedExecute(500) {
+                runWithAnimation(duration = 300) {
+                    setVisibilityGone(binding.postSubmissionStartGroup, !it)
+                }
+            }
+        }
+
+        viewModel.hasEventStarted.observe(viewLifecycleOwner) { hasStarted ->
+            if (!hasStarted) {
+                setVisibilityGone(binding.preEventStartGroup, false)
+                return@observe
+            }
+
+            val exec: () -> Unit = {
+                runWithAnimation{
+                    setVisibilityGone(binding.preEventStartGroup, true)
+                }
+                binding.countdownCard.alpha = 1F
+            }
+
+            if (viewModel.shouldAnimateCountDown) {
+                binding.countdownCard.startAnimation(R.anim.zoom_in_zoom_out_animator, after = {
+                    binding.countdownCard.alpha = 0F
+
+                    delayedExecute(700, exec)
+                })
+
+            } else exec()
+        }
+
+        viewModel.tracks.observe(viewLifecycleOwner) {
+            delayedExecute(800) {
+                tracksRvAdapter.setTracks(it)
+            }
+        }
         viewModel.selectedTrack.observe(viewLifecycleOwner) {
             it?.let {
                 navController.navigate(TracksFragmentDirections.actionNavTracksToTrackBottomDialog())
             }
         }
 
-        viewModel.viewEffect.observe(viewLifecycleOwner) {
+        viewModel.mainViewEffect.observe(viewLifecycleOwner) {
             when (it) {
                 is TracksViewModel.ViewEffect.ShowSnackbar -> {
-                    showSnackbar(binding.root, it.msg)
+                    if (!(lastSnackBarMsg == it.msg
+                                && (Date().time - lastSnackBarExec) <= MIN_SNACKBAR_OFFSET)
+                    ) {
+                        lastSnackBarMsg = it.msg
+                        lastSnackBarExec = Date().time
+                        showSnackbar(binding.root, it.msg, it.actionName, it.action)
+                    }
                 }
 
                 is TracksViewModel.ViewEffect.RequestPermission -> {
@@ -109,12 +183,14 @@ class TracksFragment : Fragment() {
                     storagePermRequester.launch(it.perms)
                 }
 
-                is TracksViewModel.ViewEffect.OpenPdf -> {
-                    val intent = Intent(Intent.ACTION_VIEW)
-                    intent.data = it.uri
-                    intent.type = "application/pdf"
-                    startActivity(intent)
+                is TracksViewModel.ViewEffect.ShowConfirmationDialog -> {
+                    it.apply { context?.showAlertDialog(title, msg, todo) }
                 }
+
+                is TracksViewModel.ViewEffect.OpenPdf -> {
+                    context?.openPdf(it.file)
+                }
+
             }
         }
     }

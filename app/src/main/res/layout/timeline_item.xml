@@ -102,9 +102,9 @@
                 android:id="@+id/imageView4"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/timeline_item_subtext"
+                app:layout_constraintTop_toBottomOf="@+id/timeline_item_subtext"
                 app:srcCompat="@drawable/ic_calendar_small_bright" />
 
             <TextView

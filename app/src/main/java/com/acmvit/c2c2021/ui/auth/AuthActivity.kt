@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -22,6 +23,7 @@ import com.google.firebase.ktx.Firebase
 class AuthActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAuthBinding
+    private val LOGIN_TIME_OUT = 30000L
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +43,15 @@ class AuthActivity : AppCompatActivity() {
             Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
             if (it == viewModel.userCreated) {
                 startActivity(Intent(this, WelcomeActivity::class.java))
+                finish()
+            }
+            if(it == getString(R.string.email_sent)){
+                binding.loginButton.isEnabled=false
+                Handler().postDelayed(
+                {
+                   binding.loginButton.isEnabled=true
+                }, LOGIN_TIME_OUT
+            )
             }
             binding.overlayFrame.displayOverlay(false,overlayDrawable)
             binding.progressBarOverlay.visibility= View.INVISIBLE
@@ -65,6 +76,7 @@ class AuthActivity : AppCompatActivity() {
         val currentUser = Firebase.auth.currentUser
         if (currentUser != null) {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
     }
 

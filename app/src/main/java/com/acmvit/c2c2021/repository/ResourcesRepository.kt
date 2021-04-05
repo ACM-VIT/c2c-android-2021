@@ -9,6 +9,7 @@ import com.acmvit.c2c2021.util.NetworkException
 import com.acmvit.c2c2021.util.Resource
 import com.google.firebase.database.*
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Single
 import java.util.*
@@ -42,6 +43,10 @@ class ResourcesRepository(
         rtd.getCachedValueAt(FirebaseRTD.CURRENT_TIME_DIFF) { it.getValue(Long::class.java) }
             .observeOn(AndroidSchedulers.mainThread())
     }
+
+    fun cacheEventStartState(hasStarted: Boolean) { cache.hasEventStarted = hasStarted }
+
+    fun getCachedEventStartState() = cache.hasEventStarted
 
     private fun <T> networkCheckedRun(todo: () -> Observable<T>): Observable<T> {
         return if (!isConnected) Observable.error(NetworkException()) else todo()
