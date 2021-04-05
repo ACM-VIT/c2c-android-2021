@@ -48,7 +48,7 @@ class ResourcesRepository(
 
     fun getCachedEventStartState() = cache.hasEventStarted
 
-    private fun <T> networkCheckedRun(todo: () -> Observable<T>): Observable<T> {
+    private inline fun <T> networkCheckedRun(todo: () -> Observable<T>): Observable<T> {
         return if (!isConnected) Observable.error(NetworkException()) else todo()
     }
 }

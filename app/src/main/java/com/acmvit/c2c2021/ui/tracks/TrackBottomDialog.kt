@@ -9,21 +9,38 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import androidx.navigation.navGraphViewModels
 import com.acmvit.c2c2021.BuildConfig
 import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.databinding.DialogBottomTracksBinding
+import com.acmvit.c2c2021.util.MIN_SNACKBAR_OFFSET
 import com.acmvit.c2c2021.util.openPdf
 import com.acmvit.c2c2021.util.showSnackbar
 import com.acmvit.c2c2021.viewmodels.TracksViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.io.File
+import java.util.*
 
 
 class TrackBottomDialog: BottomSheetDialogFragment() {
+    private lateinit var storagePermRequester: ActivityResultLauncher<Array<String>>
     private lateinit var binding: DialogBottomTracksBinding
     private val viewModel by navGraphViewModels<TracksViewModel>(R.id.nav_tracks)
+    private var permissionRequest: TracksViewModel.ViewEffect.RequestPermission? = null
+    private var lastSnackBarMsg = ""
+    private var lastSnackBarExec = 0L
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        storagePermRequester =
+            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { results ->
+                val res = results.values.sumBy { if (it) 1 else 0 }
+                permissionRequest?.let { it.todo(res == 1) }
+            }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,13 +64,23 @@ class TrackBottomDialog: BottomSheetDialogFragment() {
 
         viewModel.dialogViewEffect.observe(viewLifecycleOwner) {
             when(it) {
-                is TracksViewModel.ViewEffect.ShowSnackbar -> {
+                is TracksViewModel.ViewEffect.ShowSnackbar -> if (!(lastSnackBarMsg == it.msg
+                            && (Date().time - lastSnackBarExec) <= MIN_SNACKBAR_OFFSET)
+                ) {
+                    lastSnackBarMsg = it.msg
+                    lastSnackBarExec = Date().time
                     showSnackbar(binding.root, it.msg, it.actionName, it.action)
                 }
 
                 is TracksViewModel.ViewEffect.OpenPdf -> {
                     context?.openPdf(it.file)
                 }
+
+                is TracksViewModel.ViewEffect.RequestPermission -> {
+                    permissionRequest = it
+                    storagePermRequester.launch(it.perms)
+                }
+
             }
         }
     }

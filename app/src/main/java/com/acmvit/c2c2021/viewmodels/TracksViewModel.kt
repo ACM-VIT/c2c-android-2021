@@ -67,9 +67,10 @@ class TracksViewModel(
                 setAptViewEffect {
                     ViewEffect.ShowSnackbar(
                         app.getString(R.string.downloaded, name),
-                        app.getString(R.string.open), {
-                            openOrDownloadFile("${name}.pdf") {}
-                        })
+                        app.getString(R.string.open)
+                    ) {
+                        openOrDownloadFile("${name}.pdf") {}
+                    }
                 }
                 manageDownloads { remove(it) }
             },
@@ -242,7 +243,7 @@ class TracksViewModel(
         }, { checkSubmissionsStart() })
     }
 
-    private fun clockVerifiedRun(todo: () -> Unit, doAfterVerify: () -> Unit) {
+    private inline fun clockVerifiedRun(todo: () -> Unit, crossinline doAfterVerify: () -> Unit) {
         if (!clockVerified) {
             disposable.add(resourcesRepository.getCurrentTimeDiff().subscribe({ res ->
                 res.data?.let {
@@ -255,7 +256,7 @@ class TracksViewModel(
         }
     }
 
-    private fun openOrDownloadFile(filename: String, todo: () -> Unit) {
+    private inline fun openOrDownloadFile(filename: String, todo: () -> Unit) {
         val file = checkFileExists(filename)
         if (file != null) {
             setAptViewEffect { ViewEffect.OpenPdf(file) }
