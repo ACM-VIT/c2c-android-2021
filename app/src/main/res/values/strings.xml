@@ -1,19 +1,19 @@
 <resources>
     <string name="app_name">Code2Create</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="welcome_slider_1_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
+    <string name="welcome_slider_1_text">Need to plan out the all-nighters? Keep up on C2C\'s event flow and timings right here!</string>
     <string name="welcome_slider_1_header">Timeline</string>
-    <string name="welcome_slider_2_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
+    <string name="welcome_slider_2_text">Access all of your in-hack notifications to stay on top of this hackathon!</string>
     <string name="welcome_slider_2_header">Notifications</string>
-    <string name="welcome_slider_3_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
+    <string name="welcome_slider_3_text">Curious about Code2Create\'s themes this year? Read up on the details of all the tracks of the C2C-21 hack!</string>
     <string name="welcome_slider_3_header">Tracks</string>
-    <string name="welcome_slider_4_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
+    <string name="welcome_slider_4_text">Head over to our FAQ section for answers to any queries regarding the hack. Make sure to check out the sponsors that have made C2C a reality this year!</string>
     <string name="welcome_slider_4_header">About</string>
-    <string name="welcome_slider_5_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
+    <string name="welcome_slider_5_text">View your Code2Create Profile</string>
     <string name="welcome_slider_5_header">Profile</string>
     <string name="code2create">Code2Create</string>
     <string name="join_discord_header">Join our discord channel for latest updates</string>
-    <string name="discord_channel_name">Discord channel name</string>
+    <string name="discord_channel_name">Code2Create 2021</string>
     <string name="join_now">Join Now</string>
     <string name="skip">Skip</string>
     <string name="next">Next</string>
@@ -83,7 +83,7 @@
     <string name="email_empty">Email cannot be empty</string>
     <string name="error">Some error occurred</string>
     <string name="email_not_registered">This email is not registered for C2C on HackerEarth.</string>
-    <string name="email_sent">Email sent.Please check your email for logging in.</string>
+    <string name="email_sent">Email sent\nPlease check your email for logging in!</string>
     <string name="error_with_link">Error signing in with email link</string>
 
     <!--Notification and Speakers-->
