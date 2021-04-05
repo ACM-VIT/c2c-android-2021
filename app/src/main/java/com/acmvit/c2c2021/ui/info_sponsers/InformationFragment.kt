@@ -1,9 +1,12 @@
 package com.acmvit.c2c2021.ui.info_sponsers
 
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
@@ -11,11 +14,16 @@ import androidx.viewpager2.widget.ViewPager2.ScrollState
 import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.databinding.FragmentInformationBinding
 import com.acmvit.c2c2021.model.About
+import com.acmvit.c2c2021.ui.OverlayFrame
 import com.acmvit.c2c2021.ui.adapters.AboutAdapter
 import com.acmvit.c2c2021.ui.adapters.FaqAdapter
 import com.acmvit.c2c2021.viewmodels.FaqViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 
 class InformationFragment : Fragment() {
+    private lateinit var progressBar: ProgressBar
+    private lateinit var overlayFrame: OverlayFrame
+    private var overlayDrawable: ColorDrawable? = null
 
     private var _binding: FragmentInformationBinding? = null
     private val binding get() = _binding!!
@@ -30,32 +38,42 @@ class InformationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding =  FragmentInformationBinding.inflate(inflater, container, false)
+        _binding = FragmentInformationBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        overlayDrawable =
+            ColorDrawable(ContextCompat.getColor(requireContext(), R.color.loadingOverlay))
+        progressBar = requireActivity().progress_bar_overlay
+        overlayFrame = requireActivity().overlay_frame
+        overlayFrame.displayOverlay(true, overlayDrawable!!)
+        progressBar.visibility = View.VISIBLE
+
         populateList()
         setUpViewPager()
-        binding.leftArrow.setOnClickListener{
+        binding.leftArrow.setOnClickListener {
             val tab = binding.aboutVp.currentItem
-            if(tab != 0)
-                binding.aboutVp.currentItem = tab-1
+            if (tab != 0)
+                binding.aboutVp.currentItem = tab - 1
         }
-        binding.rightArrow.setOnClickListener{
+        binding.rightArrow.setOnClickListener {
             val tab = binding.aboutVp.currentItem
-            if(tab != 3)
-                binding.aboutVp.currentItem = tab+1
+            if (tab != 3)
+                binding.aboutVp.currentItem = tab + 1
         }
         fetchFaq()
     }
 
     private fun fetchFaq() {
         viewModel.faqList.observe(viewLifecycleOwner, {
-            if(it.isNotEmpty()) {
+            if (it.isNotEmpty()) {
                 faqAdapter.submitList(it)
                 binding.rvFaq.adapter = faqAdapter
+                overlayFrame.displayOverlay(false, overlayDrawable!!)
+                progressBar.visibility = View.INVISIBLE
             }
         })
     }
@@ -125,5 +143,11 @@ class InformationFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onStop() {
+        super.onStop()
+        overlayFrame.displayOverlay(false, overlayDrawable!!)
+        progressBar.visibility = View.INVISIBLE
     }
 }
