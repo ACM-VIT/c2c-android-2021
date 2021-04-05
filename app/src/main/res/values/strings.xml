@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">C2C 2021</string>
+    <string name="app_name">Code2Create</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="welcome_slider_1_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna </string>
     <string name="welcome_slider_1_header">Timeline</string>
@@ -113,5 +113,8 @@
     <string name="dowload_all_tracks_conf_msg">Are you sure you wanna download all the tracks?</string>
     <string name="download_all_tracks_conf_title">Download All tracks</string>
     <string name="open">Open</string>
+
+    <string name="notification_channel_name">Code2Create 2021</string>
+    <string name="notification_channel_disp">Updates</string>
 
 </resources>
