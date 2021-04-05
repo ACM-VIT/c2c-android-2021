@@ -1,5 +1,6 @@
 package com.acmvit.c2c2021.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.acmvit.c2c2021.repository.UserRepository
@@ -16,4 +17,10 @@ class ProfileViewModel: ViewModel() {
         userRepository.fetchDiscord()
         userRepository.fetchUser(Firebase.auth.currentUser?.email!!)
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("ff", "onCleared: ")
+    }
+
 }

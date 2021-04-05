@@ -2,47 +2,38 @@ package com.acmvit.c2c2021.ui.tracks
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.transition.AutoTransition
-import android.transition.Slide
-import android.transition.Transition
-import android.transition.TransitionManager
-import android.util.Log
-import android.view.Gravity
-import androidx.fragment.app.Fragment
+import android.transition.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.transition.addListener
-import androidx.core.view.isGone
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.acmvit.c2c2021.R
-import com.acmvit.c2c2021.binding.setVisibility
 import com.acmvit.c2c2021.binding.setVisibilityGone
 import com.acmvit.c2c2021.databinding.FragmentTracksBinding
 import com.acmvit.c2c2021.ui.PrizesActivity
 import com.acmvit.c2c2021.util.*
 import com.acmvit.c2c2021.viewmodels.TracksViewModel
 import kotlinx.android.synthetic.main.fragment_tracks.*
-import org.koin.android.ext.android.bind
-import java.time.Duration
 import java.util.*
+
 
 class TracksFragment : Fragment() {
     private lateinit var storagePermRequester: ActivityResultLauncher<Array<String>>
     private val TAG = "TracksFragment"
     private lateinit var tracksRvAdapter: TracksAdapter
     private lateinit var binding: FragmentTracksBinding
-    private val viewModel by navGraphViewModels<TracksViewModel>(R.id.nav_tracks)
+
+    private lateinit var viewModel: TracksViewModel
+
     private val navController by lazy { findNavController() }
     private var permissionRequest: TracksViewModel.ViewEffect.RequestPermission? = null
     private var lastSnackBarMsg = ""
@@ -62,6 +53,10 @@ class TracksFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentTracksBinding.inflate(inflater, container, false)
+
+        val backStackEntry = navController.getBackStackEntry(R.id.nav_tracks)
+        viewModel = ViewModelProvider(backStackEntry).get(TracksViewModel::class.java)
+
         return binding.root
     }
 
@@ -134,6 +129,7 @@ class TracksFragment : Fragment() {
 
         viewModel.hasEventStarted.observe(viewLifecycleOwner) { hasStarted ->
             if (!hasStarted) {
+                binding.countdownCard.visibility = View.VISIBLE
                 setVisibilityGone(binding.preEventStartGroup, false)
                 return@observe
             }
@@ -142,12 +138,11 @@ class TracksFragment : Fragment() {
                 runWithAnimation{
                     setVisibilityGone(binding.preEventStartGroup, true)
                 }
-                binding.countdownCard.alpha = 1F
             }
 
             if (viewModel.shouldAnimateCountDown) {
                 binding.countdownCard.startAnimation(R.anim.zoom_in_zoom_out_animator, after = {
-                    binding.countdownCard.alpha = 0F
+                    binding.countdownCard.visibility = View.GONE
 
                     delayedExecute(700, exec)
                 })
