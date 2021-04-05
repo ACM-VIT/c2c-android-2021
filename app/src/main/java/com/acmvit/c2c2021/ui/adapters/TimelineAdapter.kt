@@ -1,6 +1,7 @@
 package com.acmvit.c2c2021.ui.adapters
 
 import android.annotation.SuppressLint
+import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,7 @@ class TimelineAdapter(private val timelineList: List<TimelineItem>) :
         val dateHolder = dateSplits.split(" ")
         holder.timelineDay.text = dateHolder[0]
         holder.timelineDate.text = "${dateHolder[1]}${dateSuffixes[dateHolder[1].toInt()]}"
+        d("Timelineprint", "${unixToHour(timelineList[position].endUnix)}");
         holder.timelineTimingText.text =
             "${unixToHour(timelineList[position].startUnix)}-${unixToHour(timelineList[position].endUnix)}"
     }
@@ -43,7 +45,7 @@ class TimelineAdapter(private val timelineList: List<TimelineItem>) :
     @SuppressLint("SimpleDateFormat")
     private fun unixToHour(unix: Long): String {
         val formatter = SimpleDateFormat("hhaaa")
-        return formatter.format(unix)
+        return formatter.format(unix * 1000)
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
