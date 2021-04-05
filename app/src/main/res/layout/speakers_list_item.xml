@@ -10,22 +10,32 @@
     app:cardBackgroundColor="#323232"
     app:cardCornerRadius="12dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="4dp">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_margin="4dp"
-            app:cardCornerRadius="12dp">
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            app:cardCornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/speaker_img"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_horizontal"
+                android:adjustViewBounds="true"
                 android:src="@color/primaryGreen" />
         </com.google.android.material.card.MaterialCardView>
 
@@ -34,31 +44,47 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
             android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialCardView"
             tools:text="SS Roy" />
 
         <TextView
             android:id="@+id/speaker_topic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:padding="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/speaker_name"
             tools:text="@string/welcome_slider_1_text" />
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
             android:layout_gravity="bottom|center_horizontal"
-            app:cardCornerRadius="8dp">
+            android:layout_margin="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/speaker_topic"
+            app:layout_constraintVertical_bias="1.0">
 
             <TextView
                 android:id="@+id/event_status"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="12sp"
                 android:layout_gravity="center_horizontal"
-                android:padding="8dp" />
+                android:padding="8dp"
+                android:textSize="12sp" />
         </com.google.android.material.card.MaterialCardView>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

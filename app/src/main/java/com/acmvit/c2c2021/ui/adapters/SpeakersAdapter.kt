@@ -34,17 +34,17 @@ class SpeakersAdapter(private val list:ArrayList<Speakers>): RecyclerView.Adapte
         if(list[position].startUnix<=currentTime && list[position].endUnix>=currentTime){
             holder.status.setBackgroundColor(Color.parseColor("#48BA86"))
             holder.status.text=holder.status.context.resources.getString(R.string.live_now)
+            holder.itemView.setOnClickListener {
+                if(list[position].sessionUrl!="") {
+                    val uri = Uri.parse(list[position].sessionUrl)
+                    holder.itemView.context.startActivity(Intent(Intent.ACTION_VIEW, uri))
+                }
+            }
         }
         if(list[position].endUnix<currentTime){
             holder.status.setBackgroundColor(Color.parseColor("#EB5757"))
             holder.status.text=holder.status.context.resources.getString(R.string.event_over)
         }
-        holder.itemView.setOnClickListener {
-            val uri= Uri.parse(list[position].sessionUrl)
-            holder.itemView.context.startActivity(Intent(Intent.ACTION_VIEW,uri))
-        }
-
-
     }
 
     override fun getItemCount(): Int = list.size
