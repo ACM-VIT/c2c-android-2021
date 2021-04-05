@@ -22,9 +22,14 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
 
+    private lateinit var discordLink: String
     private lateinit var progressBar: ProgressBar
     private lateinit var overlayFrame: OverlayFrame
     private  var overlayDrawable: ColorDrawable? = null
+
+    val viewModel by lazy {
+        ViewModelProvider(this).get(ProfileViewModel::class.java)
+    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -33,10 +38,6 @@ class ProfileFragment : Fragment() {
         overlayFrame = requireActivity().overlay_frame
         overlayFrame.displayOverlay(true, overlayDrawable!!)
         progressBar.visibility = View.VISIBLE
-
-        val viewModel by lazy {
-            ViewModelProvider(this).get(ProfileViewModel::class.java)
-        }
 
         viewModel.user.observe(viewLifecycleOwner, {
             it.let {
@@ -48,14 +49,10 @@ class ProfileFragment : Fragment() {
             }
         })
 
-        join_discord.setOnClickListener {
-            viewModel.discordLink.observe(viewLifecycleOwner, {
-                it.let {
-                    val intent = Intent(ACTION_VIEW)
-                    intent.data = Uri.parse(it)
-                    requireContext().startActivity(intent)
-                }
-            })
+        join_discord_card.setOnClickListener {
+            val intent = Intent(ACTION_VIEW)
+            intent.data = Uri.parse(discordLink)
+            requireContext().startActivity(intent)
         }
 
         logout.setOnClickListener {
@@ -70,6 +67,11 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+        viewModel.discordLink.observe(viewLifecycleOwner) {
+            discordLink = it
+        }
+
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
