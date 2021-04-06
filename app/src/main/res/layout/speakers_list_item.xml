@@ -18,7 +18,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/materialCardView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:layout_margin="4dp"
             android:layout_marginStart="8dp"
@@ -32,8 +32,7 @@
             <ImageView
                 android:id="@+id/speaker_img"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:scaleType="fitXY"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:adjustViewBounds="true"
                 android:src="@color/primaryGreen" />

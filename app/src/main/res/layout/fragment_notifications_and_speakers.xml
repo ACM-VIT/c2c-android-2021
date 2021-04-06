@@ -1,48 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    tools:context=".ui.notific_speakers.NotificationsAndSpeakersFragment">
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:backgroundTint="@color/backgroundColor"
-        app:cardCornerRadius="12dp"
-        app:strokeWidth="1dp"
-        app:strokeColor="@color/primaryGreen" >
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/noti_speakers_tab"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="@color/backgroundColor"
-            app:tabIndicatorGravity="stretch"
-            app:tabIndicatorColor="@color/primaryGreen"
-            app:tabIndicator="@drawable/primary_button_ripple_effect"
-            app:tabMode="fixed"
-            app:tabMinWidth="0dp"
-            app:tabTextColor="@android:color/white"
-            app:tabTextAppearance="@style/tabText"
-            app:tabGravity="fill" />
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewpager"
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/speakers_tab" />
-</LinearLayout>
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".ui.notific_speakers.NotificationsAndSpeakersFragment">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="64dp"
+                android:layout_marginEnd="24dp"
+                android:backgroundTint="@color/backgroundColor"
+                app:cardCornerRadius="12dp"
+                app:strokeColor="@color/primaryGreen"
+                app:strokeWidth="1dp">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/noti_speakers_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/backgroundColor"
+                    app:tabGravity="fill"
+                    app:tabIndicator="@drawable/primary_button_ripple_effect"
+                    app:tabIndicatorColor="@color/primaryGreen"
+                    app:tabIndicatorGravity="stretch"
+                    app:tabMinWidth="0dp"
+                    app:tabMode="fixed"
+                    app:tabTextAppearance="@style/tabText"
+                    app:tabTextColor="@android:color/white" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:minHeight="200dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/speakers_tab" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>
