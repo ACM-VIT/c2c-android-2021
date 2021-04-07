@@ -1,8 +1,10 @@
 package com.acmvit.c2c2021.ui.tracks
 
+import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -20,6 +22,7 @@ import com.acmvit.c2c2021.util.MIN_SNACKBAR_OFFSET
 import com.acmvit.c2c2021.util.openPdf
 import com.acmvit.c2c2021.util.showSnackbar
 import com.acmvit.c2c2021.viewmodels.TracksViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.io.File
 import java.util.*
@@ -40,6 +43,7 @@ class TrackBottomDialog: BottomSheetDialogFragment() {
                 val res = results.values.sumBy { if (it) 1 else 0 }
                 permissionRequest?.let { it.todo(res == 1) }
             }
+
     }
 
     override fun onCreateView(
@@ -69,7 +73,7 @@ class TrackBottomDialog: BottomSheetDialogFragment() {
                 ) {
                     lastSnackBarMsg = it.msg
                     lastSnackBarExec = Date().time
-                    showSnackbar(binding.root, it.msg, it.actionName, it.action)
+                    showSnackbar(binding.snackAnchor, it.msg, it.actionName, it.action)
                 }
 
                 is TracksViewModel.ViewEffect.OpenPdf -> {
