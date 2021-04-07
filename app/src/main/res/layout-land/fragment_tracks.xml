@@ -199,7 +199,7 @@
                 app:constraint_referenced_ids="submission_countdown_card,textView4" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/timeline_current_indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginStart="8dp"
@@ -220,9 +220,9 @@
                 android:adjustViewBounds="true"
                 android:foreground="@drawable/circular_button_ripple"
                 android:padding="12dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintBottom_toBottomOf="@+id/timeline_current_indicator"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/timeline_current_indicator"
                 bind:srcCompat="@drawable/ic_prize" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

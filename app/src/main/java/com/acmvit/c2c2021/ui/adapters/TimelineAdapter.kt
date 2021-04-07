@@ -29,9 +29,15 @@ class TimelineAdapter(private val timelineList: List<TimelineItem>) :
         val dateHolder = dateSplits.split(" ")
         holder.timelineDay.text = dateHolder[0]
         holder.timelineDate.text = "${dateHolder[1]}${dateSuffixes[dateHolder[1].toInt()]}"
-        d("Timelineprint", "${unixToHour(timelineList[position].endUnix)}");
         holder.timelineTimingText.text =
-            "${unixToHour(timelineList[position].startUnix)} - ${unixToHour(timelineList[position].endUnix)}"
+            "${unixToHour(timelineList[position].startUnix)}-${unixToHour(timelineList[position].endUnix)}"
+        holder.currentEventInidcator.setImageResource(
+            if (isEventCurrentlyInProgress(
+                    timelineList[position].startUnix,
+                    timelineList[position].endUnix
+                )
+            ) R.drawable.ic_circle_filled else R.drawable.ic_circle_bordered
+        )
     }
 
     override fun getItemCount(): Int = timelineList.size
@@ -48,12 +54,21 @@ class TimelineAdapter(private val timelineList: List<TimelineItem>) :
         return formatter.format(unix * 1000)
     }
 
+    private fun isEventCurrentlyInProgress(startUnix: Long, endUnix: Long): Boolean {
+        val currentTime = System.currentTimeMillis() / 1000
+        if (currentTime in (startUnix + 1) until endUnix) {
+            return true
+        }
+        return false
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var timelineTitle: TextView = itemView.timeline_item_title
         var timelineSubTitle: TextView = itemView.timeline_item_subtext
         var timelineTimingText: TextView = itemView.timeline_item_timing_text
         var timelineDay: TextView = itemView.timeline_item_day
         var timelineDate: TextView = itemView.timeline_item_date
+        var currentEventInidcator = itemView.timeline_current_indicator
     }
 
     companion object {
