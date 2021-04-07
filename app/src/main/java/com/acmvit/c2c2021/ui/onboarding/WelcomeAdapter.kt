@@ -64,9 +64,17 @@ class WelcomeAdapter(var context: Context) : PagerAdapter() {
         val sliderImage3 = view.findViewById<ImageView>(R.id.welcome_slider_image_3)
         val sliderHeader = view.findViewById<TextView>(R.id.welcome_slider_header)
         val sliderText = view.findViewById<TextView>(R.id.welcome_slider_text)
-        sliderImage1.setImageResource(slideImages1[position])
-        sliderImage2.setImageResource(slideImages2[position])
-        sliderImage3.setImageResource(slideImages3[position])
+
+        if (slideImages1[position] != R.drawable.ic_square) {
+            sliderImage1.setImageResource(slideImages1[position])
+        }
+        if (slideImages2[position] != R.drawable.ic_square) {
+            sliderImage2.setImageResource(slideImages2[position])
+        }
+        if (slideImages3[position] != R.drawable.ic_square) {
+            sliderImage3.setImageResource(slideImages3[position])
+        }
+
         sliderHeader.setText(slideHeader[position])
         sliderText.setText(slideText[position])
         container.addView(view)
