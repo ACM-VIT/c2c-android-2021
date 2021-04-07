@@ -14,8 +14,9 @@
         android:layout_marginTop="48dp"
         android:fontFamily="@font/dmsans_bold"
         android:gravity="center"
-        android:text="Timeline"
+        android:text="@string/timeline"
         android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
