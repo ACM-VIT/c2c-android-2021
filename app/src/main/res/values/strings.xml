@@ -116,5 +116,6 @@
 
     <string name="notification_channel_name">Code2Create 2021</string>
     <string name="notification_channel_disp">Updates</string>
+    <string name="download">Download pdf</string>
 
 </resources>
