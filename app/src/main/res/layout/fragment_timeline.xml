@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="48dp"
+        android:fontFamily="@font/dmsans_bold"
         android:gravity="center"
         android:text="Timeline"
         android:textSize="32sp"

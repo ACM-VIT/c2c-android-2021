@@ -16,6 +16,7 @@ import com.acmvit.c2c2021.ui.adapters.TimelineAdapter
 import com.acmvit.c2c2021.viewmodels.TimelineViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_timeline.*
+import android.util.Log.d
 
 
 class TimelineFragment : Fragment() {
@@ -23,29 +24,47 @@ class TimelineFragment : Fragment() {
     private lateinit var overlayFrame: OverlayFrame
     private var overlayDrawable: ColorDrawable? = null
 
+    private var goToPosReciever: Int = 0
+
     private val viewModel by lazy {
         ViewModelProvider(this).get(TimelineViewModel::class.java)
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         overlayDrawable =
             ColorDrawable(ContextCompat.getColor(requireContext(), R.color.loadingOverlay))
         progressBar = requireActivity().progress_bar_overlay
         overlayFrame = requireActivity().overlay_frame
         overlayFrame.displayOverlay(true, overlayDrawable!!)
         progressBar.visibility = View.VISIBLE
-
-        viewModel.timelineList.observe(viewLifecycleOwner, {
+        viewModel.timelineList.observe(viewLifecycleOwner, { it ->
             if (it.isNotEmpty()) {
                 val adapter = TimelineAdapter(it)
-                timleline_recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                it.forEach { item ->
+                    if(isEventCurrentlyInProgress(item.startUnix, item.endUnix)){
+                        goToPosReciever = it.indexOf(item)
+                    }
+                }
+                d("TimelineItem", "$goToPosReciever")
+                val linearLayoutManager = LinearLayoutManager(requireContext())
+                linearLayoutManager.scrollToPositionWithOffset(goToPosReciever, 20)
+                timleline_recyclerView.layoutManager = linearLayoutManager
                 timleline_recyclerView.adapter = adapter
                 overlayFrame.displayOverlay(false, overlayDrawable!!)
                 progressBar.visibility = View.INVISIBLE
+//                timleline_recyclerView.smoothScrollToPosition(goToPosReciever)
             }
         })
+    }
+
+    private fun isEventCurrentlyInProgress(startUnix: Long, endUnix: Long): Boolean {
+        val currentTime = System.currentTimeMillis() / 1000
+        if (currentTime in (startUnix + 1) until endUnix) {
+            return true
+        }
+        return false
     }
 
     override fun onCreateView(
