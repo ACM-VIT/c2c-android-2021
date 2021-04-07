@@ -12,37 +12,67 @@
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/snack_anchor"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:elevation="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorSurface">
+            android:background="@color/color_surface_85">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="@color/primaryGreen"
+                android:clickable="@{!viewmodel.isCurrentTrackDownloadingObservable()}"
+                android:onClick="@{() -> viewmodel.downloadTrack(viewmodel.selectedTrack)}"
+                android:text="@string/download"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                app:cornerRadius="8dp"
+                app:iconGravity="textStart"
+                app:iconPadding="10dp"
+                app:iconSize="18dp"
+                app:iconTint="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                bind:icon="@{viewmodel.isCurrentTrackDownloadingObservable() ? @drawable/transparent : @drawable/ic_download}" />
 
             <TextView
                 android:id="@+id/track_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="8dp"
-                android:elevation="3dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="45dp"
+                android:elevation="9dp"
                 android:fontFamily="@font/dmsans_bold"
                 android:includeFontPadding="false"
                 android:text="@{viewmodel.selectedTrack.name}"
                 android:textColor="@color/textColor"
                 android:textSize="26sp"
-                app:layout_constraintBottom_toBottomOf="@+id/cardView"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="Space" />
 
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/scrollView2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
                 android:clipToPadding="false"
-                android:paddingBottom="150dp"
+                android:fadingEdge="vertical"
+                android:fadingEdgeLength="20dp"
+                android:overScrollMode="never"
+                android:paddingBottom="200dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/track_name">
 
@@ -52,9 +82,9 @@
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
                     android:lineSpacingExtra="1sp"
-                    android:paddingStart="16dp"
+                    android:paddingStart="24dp"
                     android:paddingTop="16dp"
-                    android:paddingEnd="16dp"
+                    android:paddingEnd="24dp"
                     android:text="@{viewmodel.selectedTrack.problemStatement}"
                     android:textSize="16sp"
                     tools:targetApi="o"
@@ -62,45 +92,30 @@
 
             </androidx.core.widget.NestedScrollView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardView"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:cardBackgroundColor="@color/colorSurfaceLight"
-                app:cardCornerRadius="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="20dp"
-                android:enabled="@{!viewmodel.isCurrentTrackDownloadingObservable()}"
-                android:onClick="@{() -> viewmodel.downloadTrack(viewmodel.selectedTrack)}"
-                app:backgroundTint="@color/primaryGreen"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:tint="@android:color/white"
-                bind:imageDrawable="@{viewmodel.isCurrentTrackDownloadingObservable() ? @drawable/transparent : @drawable/ic_download}" />
-
             <ProgressBar
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_margin="16dp"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="110dp"
                 android:elevation="6dp"
                 android:indeterminateTint="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton"
-                app:layout_constraintEnd_toEndOf="@+id/floatingActionButton"
-                app:layout_constraintStart_toStartOf="@+id/floatingActionButton"
-                app:layout_constraintTop_toTopOf="@+id/floatingActionButton"
+                app:layout_constraintBottom_toBottomOf="@+id/button"
+                app:layout_constraintEnd_toEndOf="@+id/button"
+                app:layout_constraintStart_toStartOf="@+id/button"
+                app:layout_constraintTop_toTopOf="@+id/button"
                 bind:isVisible="@{viewmodel.isCurrentTrackDownloadingObservable()}" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorSurface"
+                android:elevation="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>
