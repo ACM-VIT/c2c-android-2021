@@ -110,8 +110,8 @@
     <string name="network_err_msg">Please Check Your Network Connection</string>
     <string name="randomErr">Experiencing Problems Please Try Again . . .</string>
     <string name="submission_completed">Submission Over</string>
-    <string name="dowload_all_tracks_conf_msg">Are you sure you wanna download all the tracks?</string>
-    <string name="download_all_tracks_conf_title">Download All tracks</string>
+    <string name="dowload_all_tracks_conf_msg">Are you sure you want to download all the tracks?</string>
+    <string name="download_all_tracks_conf_title">Download All Tracks</string>
     <string name="open">Open</string>
 
     <string name="notification_channel_name">Code2Create 2021</string>
