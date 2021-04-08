@@ -45,7 +45,7 @@ class TimelineAdapter(private val timelineList: List<TimelineItem>) :
     @SuppressLint("SimpleDateFormat")
     private fun dateParser(unix: Long): String {
         val formatter = SimpleDateFormat("EEE dd")
-        return formatter.format(unix)
+        return formatter.format(unix * 1000)
     }
 
     @SuppressLint("SimpleDateFormat")
