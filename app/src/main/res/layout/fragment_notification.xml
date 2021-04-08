@@ -14,6 +14,7 @@
         android:layout_marginTop="48dp"
         android:fontFamily="@font/dmsans_regular"
         android:text="@string/notifications"
+        android:textStyle="bold"
         android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

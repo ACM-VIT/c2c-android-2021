@@ -35,6 +35,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
                 android:src="@color/primaryGreen" />
         </com.google.android.material.card.MaterialCardView>
 
@@ -56,6 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
+            android:gravity="center_horizontal"
             android:padding="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
