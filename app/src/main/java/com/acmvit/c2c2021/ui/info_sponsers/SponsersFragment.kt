@@ -25,7 +25,7 @@ class SponsersFragment : Fragment() {
     ): View {
         val binding:FragmentSponsersBinding= FragmentSponsersBinding.inflate(inflater)
         binding.titleSponsor.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.prepbytes.com/")))
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.zuddl.com/")))
         }
         return binding.root
     }
