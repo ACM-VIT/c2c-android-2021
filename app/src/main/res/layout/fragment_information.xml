@@ -1,29 +1,27 @@
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:scrollbars="none"
-    android:fillViewport="true" >
+    android:fillViewport="true"
+    android:scrollbars="none">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".ui.info_sponsers.InformationFragment">
 
         <TextView
             android:id="@+id/tv_about_us"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
             android:layout_marginStart="28dp"
-            android:text="@string/about_us"
-            android:textSize="32sp"
+            android:layout_marginTop="48dp"
             android:fontFamily="@font/dmsans_bold"
+            android:text="@string/about_us"
             android:textColor="@android:color/white"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/view_pager_layout"
@@ -31,37 +29,41 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/tv_about_us"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" >
+            app:layout_constraintTop_toBottomOf="@+id/tv_about_us">
 
             <ImageView
                 android:id="@+id/left_arrow"
-                android:layout_marginStart="24dp"
-                android:layout_gravity="center"
                 android:layout_width="0dp"
-                android:layout_weight="3"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_left_arrow"/>
+                android:layout_gravity="center"
+                android:layout_weight="10"
+                android:paddingStart="12dp"
+                android:paddingTop="100dp"
+                android:paddingBottom="100dp"
+                android:src="@drawable/ic_left_arrow" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/about_vp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="60"
-                android:overScrollMode="never"
                 android:layout_gravity="center"
                 android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp" />
+                android:layout_marginEnd="6dp"
+                android:layout_weight="70"
+                android:overScrollMode="never" />
 
             <ImageView
                 android:id="@+id/right_arrow"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
                 android:layout_gravity="center"
-                android:layout_marginEnd="24dp"
-                android:src="@drawable/ic_right_arrow"/>
+                android:layout_weight="10"
+                android:paddingTop="100dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="100dp"
+                android:src="@drawable/ic_right_arrow" />
 
         </LinearLayout>
 
@@ -69,14 +71,14 @@
             android:id="@+id/tv_faq"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
             android:layout_marginStart="24dp"
-            android:text="@string/faq"
-            android:textSize="32sp"
+            android:layout_marginTop="44dp"
             android:fontFamily="@font/dmsans_bold"
+            android:text="@string/faq"
             android:textColor="@android:color/white"
-            app:layout_constraintTop_toBottomOf="@+id/view_pager_layout"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textSize="32sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_pager_layout" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_faq"
@@ -85,9 +87,9 @@
             android:layout_marginTop="27dp"
             android:nestedScrollingEnabled="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@+id/tv_faq"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_faq" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -3,6 +3,7 @@ package com.acmvit.c2c2021.ui.onboarding
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -65,14 +66,20 @@ class WelcomeAdapter(var context: Context) : PagerAdapter() {
         val sliderHeader = view.findViewById<TextView>(R.id.welcome_slider_header)
         val sliderText = view.findViewById<TextView>(R.id.welcome_slider_text)
 
-        if (slideImages1[position] != R.drawable.ic_square) {
+        if (position != 0) {
             sliderImage1.setImageResource(slideImages1[position])
+        } else {
+            sliderImage1.visibility = GONE
         }
+
         if (slideImages2[position] != R.drawable.ic_square) {
             sliderImage2.setImageResource(slideImages2[position])
         }
-        if (slideImages3[position] != R.drawable.ic_square) {
+
+        if (position != 4) {
             sliderImage3.setImageResource(slideImages3[position])
+        } else {
+            sliderImage3.visibility = GONE
         }
 
         sliderHeader.setText(slideHeader[position])
