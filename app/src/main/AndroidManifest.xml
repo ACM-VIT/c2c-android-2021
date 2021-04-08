@@ -19,10 +19,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.PrizesActivity" />
-        <activity android:name=".ui.onboarding.JoinDiscordActivity" />
-        <activity android:name=".ui.onboarding.WelcomeActivity" />
-        <activity android:name=".ui.MainActivity" />
-        <activity android:name="com.acmvit.c2c2021.ui.auth.AuthActivity">
+        <activity android:name=".ui.onboarding.JoinDiscordActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".ui.onboarding.WelcomeActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.MainActivity" android:screenOrientation="portrait" />
+        <activity android:name="com.acmvit.c2c2021.ui.auth.AuthActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
