@@ -1,30 +1,20 @@
 package com.acmvit.c2c2021.ui.tracks
 
-import android.app.Dialog
-import android.content.ActivityNotFoundException
 import android.content.DialogInterface
-import android.content.Intent
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.FileProvider
 import androidx.navigation.navGraphViewModels
-import com.acmvit.c2c2021.BuildConfig
 import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.databinding.DialogBottomTracksBinding
 import com.acmvit.c2c2021.util.MIN_SNACKBAR_OFFSET
 import com.acmvit.c2c2021.util.openPdf
 import com.acmvit.c2c2021.util.showSnackbar
 import com.acmvit.c2c2021.viewmodels.TracksViewModel
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import java.io.File
 import java.util.*
 
 

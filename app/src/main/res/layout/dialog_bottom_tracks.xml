@@ -20,7 +20,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/color_surface_85">
+            android:background="@color/color_bg_80">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button"
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="30dp"
                 android:elevation="9dp"
                 android:fontFamily="@font/dmsans_bold"
                 android:includeFontPadding="false"
@@ -65,7 +65,7 @@
                 android:id="@+id/scrollView2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="18dp"
                 android:clipToPadding="false"
                 android:fadingEdge="vertical"
                 android:fadingEdgeLength="20dp"
@@ -108,12 +108,12 @@
                 android:id="@+id/view2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:background="@color/colorSurface"
-                android:elevation="8dp"
                 app:layout_constraintBottom_toTopOf="@+id/scrollView2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@color/backgroundColor"
+                android:elevation="8dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
