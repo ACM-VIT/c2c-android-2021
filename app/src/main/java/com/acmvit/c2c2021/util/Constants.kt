@@ -12,15 +12,15 @@ const val MIN_SNACKBAR_OFFSET = 30_000L
 val Context.COUNTDOWN_COLOR_MAP
     get() = mapOf(
         Pair(
-            TimeUnit.MILLISECONDS.convert(6, TimeUnit.HOURS),
+            TimeUnit.MILLISECONDS.convert(90, TimeUnit.MINUTES),
             getColor(R.color.colorGreen)
         ),
         Pair(
-            TimeUnit.MILLISECONDS.convert(3, TimeUnit.HOURS),
+            TimeUnit.MILLISECONDS.convert(45, TimeUnit.MINUTES),
             getColor(R.color.colorOrange)
         ),
         Pair(
-            TimeUnit.MILLISECONDS.convert(1, TimeUnit.HOURS),
+            TimeUnit.MILLISECONDS.convert(15, TimeUnit.MINUTES),
             getColor(
                 R.color.colorRed
             )
@@ -28,6 +28,5 @@ val Context.COUNTDOWN_COLOR_MAP
     )
 
 class NetworkException: Exception("Unable to connect to the internet")
-
 
 
