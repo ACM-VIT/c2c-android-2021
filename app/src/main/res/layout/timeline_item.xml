@@ -18,19 +18,23 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/timeline_item_card_holder"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="@color/primaryGreen"
+        android:minHeight="150dp"
         app:cardCornerRadius="17dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/timeline_current_indicator">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:minHeight="153dp">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline2"
@@ -102,6 +106,8 @@
                 android:id="@+id/imageView4"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/timeline_item_subtext"
                 app:layout_constraintTop_toBottomOf="@+id/timeline_item_subtext"
@@ -125,7 +131,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="0.1dp"
-        android:layout_height="175dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:background="#FFFF"
         app:layout_constraintBottom_toBottomOf="parent"
