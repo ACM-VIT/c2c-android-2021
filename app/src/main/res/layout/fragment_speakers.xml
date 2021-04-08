@@ -14,7 +14,6 @@
         android:layout_marginTop="48dp"
         android:fontFamily="@font/dmsans_bold"
         android:text="@string/speakers"
-        android:textStyle="bold"
         android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
