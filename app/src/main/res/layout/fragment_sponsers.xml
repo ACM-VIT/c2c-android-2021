@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:scrollbars="none"
-    android:fillViewport="true" >
+    android:fillViewport="true"
+    android:scrollbars="none">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".ui.info_sponsers.SponsersFragment">
 
         <TextView
@@ -18,13 +16,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
-            android:text="@string/title_sponsor"
-            android:textSize="32sp"
             android:fontFamily="@font/dmsans_bold"
+            android:text="@string/title_sponsor"
             android:textColor="@android:color/white"
-            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/title_sponsor"
@@ -32,23 +30,23 @@
             android:layout_height="76dp"
             android:layout_marginTop="24dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/ic_logoprepbytes"
-            app:layout_constraintTop_toBottomOf="@+id/tv_title_sponsor"
+            android:src="@drawable/ic_zuddl_logo"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_sponsor" />
 
         <TextView
             android:id="@+id/tv_sponsors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/sponsors"
-            android:textSize="32sp"
             android:fontFamily="@font/dmsans_bold"
+            android:text="@string/sponsors"
             android:textColor="@android:color/white"
-            app:layout_constraintTop_toBottomOf="@+id/title_sponsor"
+            android:textSize="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/title_sponsor" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_sponsors"
@@ -57,10 +55,10 @@
             android:layout_marginTop="27dp"
             android:nestedScrollingEnabled="false"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
-            app:layout_constraintTop_toBottomOf="@+id/tv_sponsors"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_sponsors"
+            app:spanCount="2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

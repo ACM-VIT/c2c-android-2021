@@ -60,7 +60,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:alpha="0.5"
-        android:src="@drawable/ic_square"
+        android:src="@drawable/ic_information_onboarding"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/welcome_slider_image_2"
         app:layout_constraintStart_toStartOf="parent"

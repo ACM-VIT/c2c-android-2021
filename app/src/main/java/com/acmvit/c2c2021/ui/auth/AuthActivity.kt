@@ -14,6 +14,7 @@ import com.acmvit.c2c2021.R
 import com.acmvit.c2c2021.databinding.ActivityAuthBinding
 import com.acmvit.c2c2021.ui.MainActivity
 import com.acmvit.c2c2021.ui.onboarding.WelcomeActivity
+import com.acmvit.c2c2021.util.showSnackbar
 import com.acmvit.c2c2021.viewmodels.AuthViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.ktx.auth
@@ -40,7 +41,7 @@ class AuthActivity : AppCompatActivity() {
             viewModel.checkDatabase(binding.emailEdittext.text.toString(),sharedPreferences)
         }
         viewModel.error.observe(this, {
-            Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
+            showSnackbar(binding.root, it, length = Snackbar.LENGTH_LONG)
             if (it == viewModel.userCreated) {
                 startActivity(Intent(this, WelcomeActivity::class.java))
                 finish()

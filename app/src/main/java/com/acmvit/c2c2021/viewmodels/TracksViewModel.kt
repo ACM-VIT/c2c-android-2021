@@ -41,7 +41,9 @@ class TracksViewModel(
     private val downloadBR = DownloadBR()
     var shouldAnimateCountDown = false
         private set
-        get() = if (field) { shouldAnimateCountDown = false; true } else false
+        get() = if (field) {
+            shouldAnimateCountDown = false; true
+        } else false
 
     val hasEventStarted = MutableLiveData(resourcesRepository.getCachedEventStartState())
     val hasSubmissionStarted = MutableLiveData(false)
@@ -64,15 +66,20 @@ class TracksViewModel(
         disposable.addAll(
             downloadBR.downloadCompleteObservable.subscribe {
                 val name = downloadingTracks.value?.get(it)
-                setAptViewEffect {
-                    ViewEffect.ShowSnackbar(
-                        app.getString(R.string.downloaded, name),
-                        app.getString(R.string.open)
-                    ) {
-                        openOrDownloadFile("${name}.pdf") {}
+
+                manageDownloads {
+                    if (!containsKey(it)) { return@subscribe }
+                    setAptViewEffect {
+                        ViewEffect.ShowSnackbar(
+                            app.getString(R.string.downloaded, name),
+                            app.getString(R.string.open)
+                        ) {
+                            openOrDownloadFile("${name}.pdf") {}
+                        }
                     }
+
+                    remove(it)
                 }
-                manageDownloads { remove(it) }
             },
 
             _eventStartCountDown.asLongObservable().subscribe({ startCd ->
@@ -128,8 +135,10 @@ class TracksViewModel(
                 && track.download != null && track.name != null) {
 
                 manageDownloads {
-                    downloadFile(track.download, track.name, app,
-                        GenericErrorHandler())?.let { put(it, track.name) }
+                    downloadFile(
+                        track.download, track.name, app,
+                        GenericErrorHandler()
+                    )?.let { put(it, track.name) }
                 }
 
                 setAptViewEffect {
@@ -153,8 +162,10 @@ class TracksViewModel(
                 for (track: Track in tracks) {
                     if (track.download != null && track.name != null) {
                         manageDownloads {
-                            downloadFile(track.download, track.name, app,
-                                GenericErrorHandler())?.let { put(it, track.name) }
+                            downloadFile(
+                                track.download, track.name, app,
+                                GenericErrorHandler()
+                            )?.let { put(it, track.name) }
                         }
                     }
                 }

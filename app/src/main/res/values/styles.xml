@@ -8,20 +8,18 @@
         <item name="android:fontFamily">@font/dmsans_regular</item>
         <item name="snackbarStyle">@style/AppSnackbar</item>
         <item name="alertDialogTheme">@style/AlertDialogTheme</item>
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>
     </style>
 
     <style name="AlertDialogTheme" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
-        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
-        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
-        <item name="backgroundColor">@color/colorSurfaceLight</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DialogButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/DialogButtonStyle</item>
+        <item name="android:background">@color/colorSurface</item>
     </style>
 
-    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+    <style name="DialogButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
         <item name="android:textColor">#fff</item>
-    </style>
-
-    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
-        <item name="android:textColor">#fff</item>
+        <item name="android:letterSpacing">0.1</item>
     </style>
 
     <style name="TextButton" parent="Widget.MaterialComponents.Button.TextButton">
@@ -50,8 +48,8 @@
 
     <style name="SubmissionCountdownCardShapeAppearance" parent="">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSizeBottomLeft">16dp</item>
-        <item name="cornerSizeBottomRight">16dp</item>
+        <item name="cornerSizeBottomLeft">12dp</item>
+        <item name="cornerSizeBottomRight">12dp</item>
         <item name="cornerSizeTopLeft">0dp</item>
         <item name="cornerSizeTopRight">0dp</item>
     </style>
@@ -63,6 +61,14 @@
 
     <style name="AppSnackbar" parent="Widget.MaterialComponents.Snackbar">
         <item name="android:layout_margin">24dp</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/ShoppingList.BottomSheetDialog</item>
+    </style>
+
+    <style name="ShoppingList.BottomSheetDialog" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="backgroundTint">@android:color/transparent</item>
     </style>
 
 </resources>

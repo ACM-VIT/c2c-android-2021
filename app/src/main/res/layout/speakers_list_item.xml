@@ -18,7 +18,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/materialCardView"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_margin="4dp"
             android:layout_marginStart="8dp"
@@ -36,7 +36,7 @@
                 android:layout_gravity="center_horizontal"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:src="@color/primaryGreen" />
+                tools:src="@color/primaryGreen" />
         </com.google.android.material.card.MaterialCardView>
 
         <TextView
@@ -57,8 +57,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:gravity="center_horizontal"
             android:padding="4dp"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/speaker_name"
