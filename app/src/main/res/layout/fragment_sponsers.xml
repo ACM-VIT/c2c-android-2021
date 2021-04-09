@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
             android:fontFamily="@font/dmsans_bold"
-            android:text="@string/title_sponsor"
+            android:text="@string/platform_sponsor"
             android:textColor="@android:color/white"
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
