@@ -60,16 +60,6 @@ class TracksFragment : Fragment() {
         return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.verifyClock()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        viewModel.invalidateClock()
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.lifecycleOwner = viewLifecycleOwner
