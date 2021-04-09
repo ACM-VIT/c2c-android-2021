@@ -259,6 +259,7 @@ class TracksViewModel(
             disposable.add(resourcesRepository.getCurrentTimeDiff().subscribe({ res ->
                 res.data?.let {
                     timeDiff = it
+                    clockVerified = true
                     doAfterVerify()
                 }
             }, GenericErrorHandler()))

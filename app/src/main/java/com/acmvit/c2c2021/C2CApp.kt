@@ -4,8 +4,11 @@ import android.app.Application
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
+import android.util.Log
 import androidx.core.content.getSystemService
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.FirebaseApp
+import com.google.firebase.messaging.FirebaseMessaging
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import kotlinx.coroutines.newFixedThreadPoolContext
@@ -27,6 +30,21 @@ class C2CApp: Application() {
     override fun onCreate() {
         super.onCreate()
         FirebaseApp.initializeApp(this)
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w("TOKEN", "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+
+            if (token != null) {
+                Log.d("TOKEN", token)
+            }
+        })
 
         getSystemService<ConnectivityManager>()?.let {
             connectivityManager = it

@@ -40,7 +40,7 @@ class ResourcesRepository(
     }
 
     fun getCurrentTimeDiff() = networkCheckedRun {
-        rtd.getCachedValueAt(FirebaseRTD.CURRENT_TIME_DIFF) { it.getValue(Long::class.java) }
+        rtd.getValueAt(FirebaseRTD.CURRENT_TIME_DIFF) { it.getValue(Long::class.java) }
             .observeOn(AndroidSchedulers.mainThread())
     }
 
