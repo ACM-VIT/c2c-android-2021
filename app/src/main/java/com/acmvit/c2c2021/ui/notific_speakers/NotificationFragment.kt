@@ -39,7 +39,7 @@ class NotificationFragment : Fragment() {
 
         viewModel.notificationList.observe(viewLifecycleOwner, {
             if (it.isNotEmpty()) {
-                val adapter = NotificationAdapter(it)
+                val adapter = NotificationAdapter(it.reversed())
                 notification_recyclerView.layoutManager = LinearLayoutManager(requireContext())
                 notification_recyclerView.adapter = adapter
                 overlayFrame.displayOverlay(false, overlayDrawable!!)
