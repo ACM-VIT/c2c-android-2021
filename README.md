@@ -5,9 +5,15 @@
 <h1 align="center"> Code2Create App</h1>
 
 
-
-
 &nbsp;&nbsp;&nbsp; [![Android-master Actions Status](https://github.com/ACM-VIT/c2c-android-2021/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/ACM-VIT/c2c-android-2021/actions) &nbsp;&nbsp;&nbsp;[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/ACM-VIT/c2c-android-2021/blob/main/LICENSE) &nbsp;&nbsp;&nbsp; [![Figma Designs](https://img.shields.io/badge/Design-Figma-important)](https://www.figma.com/file/v32aTQuQWoNXKv0nyZpJhD/C2C-App?node-id=10%3A0)
+
+
+
+## Screenshots
+
+| <img src="https://github.com/ACM-VIT/c2c-android-2021/blob/master/screenshots/countdown.png" alt="countdown" style="zoom:25%;" /> | <img src="https://github.com/ACM-VIT/c2c-android-2021/blob/master/screenshots/notifications.png" alt="notifications" style="zoom:25%;" /> | <img src="https://github.com/ACM-VIT/c2c-android-2021/blob/master/screenshots/timeline.png" alt="timeline" style="zoom:25%;" /> | <img src="https://github.com/ACM-VIT/c2c-android-2021/blob/master/screenshots/tracks.png" alt="tracks" style="zoom:25%;" /> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+|                                                              |                                                              |                                                              |                                                              |
 
 ## Structure
 
@@ -25,7 +31,7 @@
 
 ## Unpacking
 
-This repository uses secrets that aren't pushed to the version control. However they are needed to build the project. Follow the below steps to obtain the files.
+This repository uses secrets that aren't pushed to version control. However they are needed to build the project. Follow the below steps to obtain the files.
 
 From the project root, execute:
 
